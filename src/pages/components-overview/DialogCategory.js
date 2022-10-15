@@ -8,6 +8,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
 
+import PropTypes from 'prop-types';
+
 const DialogCategory = (props) => {
     console.log('prop: ', props);
 
@@ -53,6 +55,13 @@ const DialogCategory = (props) => {
             </DialogActions>
         </Dialog>
     );
+};
+
+DialogCategory.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+    checked: PropTypes.array.isRequired,
+    action: PropTypes.string.isRequired
 };
 
 export default DialogCategory;

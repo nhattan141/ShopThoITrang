@@ -9,6 +9,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 
+import PropTypes from 'prop-types';
+
 const DialogOrder = (props) => {
     console.log('prop: ', props);
 
@@ -87,6 +89,12 @@ const DialogOrder = (props) => {
             </DialogActions>
         </Dialog>
     );
+};
+
+DialogOrder.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+    checked: PropTypes.array.isRequired
 };
 
 export default DialogOrder;

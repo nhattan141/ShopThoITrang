@@ -10,14 +10,11 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { PodcastsOutlined } from '../../../node_modules/@mui/icons-material/index';
+
+import PropTypes from 'prop-types';
 
 const DialogProduct = (props) => {
-    console.log('prop: ', props);
-
     const [product, setProduct] = useState({
         name: '',
         info: '',
@@ -128,6 +125,13 @@ const DialogProduct = (props) => {
             </DialogActions>
         </Dialog>
     );
+};
+
+DialogProduct.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+    checked: PropTypes.array.isRequired,
+    action: PropTypes.string.isRequired
 };
 
 export default DialogProduct;

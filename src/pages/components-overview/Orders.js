@@ -48,15 +48,12 @@ const rows = [
 
 const ComponentOrders = () => {
     const [open, setOpen] = useState(false);
-    const [id, setId] = useState();
 
     const toggleDialog = () => {
         setOpen(!open);
     };
 
     const [checked, setChecked] = useState([]);
-
-    console.log('id order: ', id);
 
     return (
         <ComponentSkeleton>

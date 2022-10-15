@@ -6,54 +6,48 @@ import Button from '@mui/material/Button';
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
 import DialogProduct from './DialogProduct';
-import { useState } from 'react';
+import { useState, useEffect, useReducer } from 'react';
+
+import * as actions from '../../store/actions/index';
+import productReducer, { initialState } from '../../store/reducers/productReducer';
+import { handleGetAllProduct } from 'services/productService';
 
 // ===============================|| COLOR BOX ||=============================== //
 
-const columns = [
+const proColumns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
         field: 'name',
         headerName: 'Name',
-        width: 200,
-        editable: true
+        width: 200
     },
     {
         field: 'infor',
         headerName: 'Infor',
-        width: 200,
-        editable: true
+        width: 200
     },
     {
         field: 'img',
         headerName: 'Image',
         width: 200,
-        editable: true
+        renderCell: (params) => {
+            return (
+                <>
+                    <img style={{ height: '100%', width: '100%' }} src={params.row.img} alt="" />
+                </>
+            );
+        }
     },
     {
         field: 'price',
         headerName: 'Price',
-        width: 200,
-        editable: true
+        width: 200
     },
     {
         field: 'category',
         headerName: 'Category',
-        width: 200,
-        editable: true
+        width: 200
     }
-];
-
-const rows = [
-    { id: 1, name: 'Snow', infor: 'Jon', img: '35', price: '4.000.000', category: 'tshirt' },
-    { id: 2, name: 'Lannister', infor: 'Cersei', img: '42', price: '4.000.000', category: 'tshirt' },
-    { id: 3, name: 'Lannister', infor: 'Jaime', img: '45', price: '4.000.000', category: 'tshirt' },
-    { id: 4, name: 'Stark', infor: 'Arya', img: '16', price: '4.000.000', category: 'tshirt' },
-    { id: 5, name: 'Targaryen', infor: 'Daenerys', img: '4', price: '4.000.000', category: 'tshirt' },
-    { id: 6, name: 'Melisandre', infor: 'Call', img: '150', price: '4.000.000', category: 'tshirt' },
-    { id: 7, name: 'Clifford', infor: 'Ferrara', img: '44', price: '4.000.000', category: 'tshirt' },
-    { id: 8, name: 'Frances', infor: 'Rossini', img: '36', price: '4.000.000', category: 'tshirt' },
-    { id: 9, name: 'Roxie', infor: 'Harvey', img: '65', price: '4.000.000', category: 'tshirt' }
 ];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
@@ -66,12 +60,29 @@ const ComponentProducts = () => {
 
     const [checked, setChecked] = useState([]);
 
+    const [state, dispatch] = useReducer(productReducer, initialState);
+
+    const { products } = state;
+
     const toggleDialog = (action) => {
         let openCopy = { ...open };
         openCopy.open = !openCopy.open;
         openCopy.action = action;
         setOpen(openCopy);
     };
+
+    const getAllProduct = async () => {
+        try {
+            let res = await handleGetAllProduct();
+            dispatch(actions.getAllProductsSuccess(res.data));
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    useEffect(() => {
+        getAllProduct();
+    }, []);
 
     return (
         <ComponentSkeleton>
@@ -86,15 +97,24 @@ const ComponentProducts = () => {
                     Add new
                 </Button>
             </Stack>
-            <div style={{ height: 400, width: '100%', border: '0.2px solid grey', marginTop: '10px' }}>
+            <div style={{ height: 800, width: '100%', border: '0.2px solid grey', marginTop: '10px' }}>
                 <DataGrid
-                    rows={rows}
-                    columns={columns}
+                    rows={products.map((product, index) => ({
+                        key: index,
+                        id: product.id,
+                        name: product.title,
+                        infor: product.description,
+                        img: product.image,
+                        price: product.price,
+                        category: product.category
+                    }))}
+                    columns={proColumns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    experimentalFeatures={{ newEditingApi: true }}
                     onSelectionModelChange={(item) => setChecked(item)}
+                    getRowId={(row) => row.key}
+                    getRowHeight={() => 200}
                 />
             </div>
             <DialogProduct open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
