@@ -7,7 +7,8 @@ import {
     FontSizeOutlined,
     LoadingOutlined,
     SkinOutlined,
-    ShoppingOutlined
+    ShoppingOutlined,
+    ProfileOutlined
 } from '@ant-design/icons';
 
 // icons
@@ -19,7 +20,8 @@ const icons = {
     LoadingOutlined,
     AppstoreAddOutlined,
     SkinOutlined,
-    ShoppingOutlined
+    ShoppingOutlined,
+    ProfileOutlined
 };
 
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
@@ -44,11 +46,11 @@ const utilities = {
             icon: icons.ShoppingOutlined
         },
         {
-            id: 'util-typography',
-            title: 'Typography',
+            id: 'util-categories',
+            title: 'Categories',
             type: 'item',
-            url: '/typography',
-            icon: icons.FontSizeOutlined
+            url: '/categories',
+            icon: icons.ProfileOutlined
         },
         {
             id: 'util-color',

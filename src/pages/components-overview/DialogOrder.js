@@ -5,15 +5,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { PodcastsOutlined } from '../../../node_modules/@mui/icons-material/index';
+import InputLabel from '@mui/material/InputLabel';
 
 const DialogOrder = (props) => {
     console.log('prop: ', props);
@@ -55,7 +49,7 @@ const DialogOrder = (props) => {
 
     return (
         <Dialog open={props.open} onClose={props.toggleDialog}>
-            <DialogTitle>Edit Order {order.cart_id}</DialogTitle>
+            <DialogTitle>Edit Order {props.checked}</DialogTitle>
             <DialogContent>
                 <Box
                     component="form"
@@ -84,6 +78,7 @@ const DialogOrder = (props) => {
                             </MenuItem>
                         ))}
                     </TextField>
+                    {props.checked.length !== 1 && <InputLabel error>Please chose 1 and only 1 item what you want to edit</InputLabel>}
                 </Box>
             </DialogContent>
             <DialogActions>

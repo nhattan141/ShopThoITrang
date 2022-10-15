@@ -17,6 +17,7 @@ const Shadow = Loadable(lazy(() => import('pages/components-overview/Shadow')));
 const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons')));
 const Products = Loadable(lazy(() => import('pages/components-overview/Products')));
 const Orders = Loadable(lazy(() => import('pages/components-overview/Orders')));
+const Categories = Loadable(lazy(() => import('pages/components-overview/Categories')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -64,6 +65,10 @@ const MainRoutes = {
         {
             path: 'orders',
             element: <Orders />
+        },
+        {
+            path: 'categories',
+            element: <Categories />
         }
     ]
 };

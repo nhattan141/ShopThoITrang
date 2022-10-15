@@ -49,7 +49,7 @@ const DialogProduct = (props) => {
 
     return (
         <Dialog open={props.open} onClose={props.toggleDialog}>
-            <DialogTitle>{props.action === 'add' ? 'Add new Product' : 'Edit Product'}</DialogTitle>
+            <DialogTitle>{props.action === 'add' ? 'Add new Product' : 'Edit Product ' + props.checked}</DialogTitle>
             <DialogContent>
                 <Box
                     component="form"
@@ -63,6 +63,7 @@ const DialogProduct = (props) => {
                         required
                         id="outlined-required"
                         label="Name"
+                        disabled={props.checked.length !== 1 && props.action === 'edit' ? true : false}
                         value={product.name}
                         onChange={(event) => hanldeOnChangeInput(event, 'name')}
                         defaultValue={props.action === 'add' ? '' : 'Edit product'}
@@ -71,6 +72,7 @@ const DialogProduct = (props) => {
                         required
                         id="outlined-required"
                         label="Information"
+                        disabled={props.checked.length !== 1 && props.action === 'edit' ? true : false}
                         value={product.info}
                         onChange={(event) => hanldeOnChangeInput(event, 'info')}
                         defaultValue={props.action === 'add' ? '' : 'Edit product'}
@@ -80,6 +82,7 @@ const DialogProduct = (props) => {
                         id="outlined-select-currency"
                         select
                         label="Catalog"
+                        disabled={props.checked.length !== 1 && props.action === 'edit' ? true : false}
                         value={product.catalog}
                         onChange={(event) => hanldeOnChangeInput(event, 'catalog')}
                     >
@@ -93,11 +96,17 @@ const DialogProduct = (props) => {
                         required
                         id="outlined-required"
                         label="Price"
+                        disabled={props.checked.length !== 1 && props.action === 'edit' ? true : false}
                         value={product.price}
                         onChange={(event) => hanldeOnChangeInput(event, 'price')}
                         defaultValue={props.action === 'add' ? '' : 'Edit product'}
                     />
-                    <IconButton color="primary" aria-label="upload picture" component="label">
+                    <IconButton
+                        disabled={props.checked.length !== 1 && props.action === 'edit' ? true : false}
+                        color="primary"
+                        aria-label="upload picture"
+                        component="label"
+                    >
                         <input hidden accept="image/*" type="file" />
                         <InputLabel>Image</InputLabel>
                         <PhotoCamera />
@@ -108,6 +117,9 @@ const DialogProduct = (props) => {
                         image="/static/images/cards/live-from-space.jpg"
                         alt="Upload product image"
                     />
+                    {props.action === 'edit' && props.checked.length !== 1 && (
+                        <InputLabel error>Please chose 1 and only 1 item what you want to edit</InputLabel>
+                    )}
                 </Box>
             </DialogContent>
             <DialogActions>

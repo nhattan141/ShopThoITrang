@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
-import DialogOrder from './DialogOrder';
+import DialogCategory from './DialogCategory';
 import { useState } from 'react';
 
 // ===============================|| COLOR BOX ||=============================== //
@@ -14,55 +14,54 @@ const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
         field: 'name',
-        headerName: 'Member Name',
-        width: 330,
-        editable: true
-    },
-    {
-        field: 'stt',
-        headerName: 'Status',
-        width: 330,
-        editable: true
-    },
-    {
-        field: 'total',
-        headerName: 'Total',
-        width: 330,
+        headerName: 'Category Name',
+        width: 200,
         editable: true
     }
 ];
 
 const rows = [
-    { id: 1, name: 'Snow', stt: 'Jon', total: 400000 },
-    { id: 2, name: 'Lannister', stt: 'Cersei', total: 400000 },
-    { id: 3, name: 'Lannister', stt: 'Jaime', total: 400000 },
-    { id: 4, name: 'Stark', stt: 'Arya', total: 400000 },
-    { id: 5, name: 'Targaryen', stt: 'Daenerys', total: 400000 },
-    { id: 6, name: 'Melisandre', stt: 'Call', total: 400000 },
-    { id: 7, name: 'Clifford', stt: 'Ferrara', total: 400000 },
-    { id: 8, name: 'Frances', stt: 'Rossini', total: 400000 },
-    { id: 9, name: 'Roxie', stt: 'Harvey', total: 400000 }
+    { id: 1, name: 'Snow' },
+    { id: 2, name: 'Lannister' },
+    { id: 3, name: 'Lannister' },
+    { id: 4, name: 'Stark' },
+    { id: 5, name: 'Targaryen' },
+    { id: 6, name: 'Melisandre' },
+    { id: 7, name: 'Clifford' },
+    { id: 8, name: 'Frances' },
+    { id: 9, name: 'Roxie' }
 ];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
-const ComponentOrders = () => {
-    const [open, setOpen] = useState(false);
-    const [id, setId] = useState();
-
-    const toggleDialog = () => {
-        setOpen(!open);
-    };
+const ComponentCategories = () => {
+    const [open, setOpen] = useState({
+        open: false,
+        action: ''
+    });
 
     const [checked, setChecked] = useState([]);
 
-    console.log('id order: ', id);
+    const toggleDialog = (action) => {
+        let openCopy = { ...open };
+        openCopy.open = !openCopy.open;
+        openCopy.action = action;
+        setOpen(openCopy);
+    };
+
+    console.log('checked: ', checked);
 
     return (
         <ComponentSkeleton>
             <Stack spacing={2} direction="row" style={{ width: '100%' }}>
+                <Button variant="outlined" color="error">
+                    Delete
+                </Button>
                 <Button variant="outlined" color="success" onClick={() => toggleDialog('edit')}>
                     Edit
+                </Button>
+                <Button variant="contained" onClick={() => toggleDialog('add')}>
+                    Add new
                 </Button>
             </Stack>
             <div style={{ height: 400, width: '100%', border: '0.2px solid grey', marginTop: '10px' }}>
@@ -71,13 +70,14 @@ const ComponentOrders = () => {
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
+                    checkboxSelection
                     experimentalFeatures={{ newEditingApi: true }}
                     onSelectionModelChange={(item) => setChecked(item)}
                 />
             </div>
-            <DialogOrder open={open} toggleDialog={toggleDialog} checked={checked} />
+            <DialogCategory open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
         </ComponentSkeleton>
     );
 };
 
-export default ComponentOrders;
+export default ComponentCategories;

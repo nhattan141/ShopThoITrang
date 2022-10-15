@@ -64,6 +64,8 @@ const ComponentProducts = () => {
         action: ''
     });
 
+    const [checked, setChecked] = useState([]);
+
     const toggleDialog = (action) => {
         let openCopy = { ...open };
         openCopy.open = !openCopy.open;
@@ -91,11 +93,11 @@ const ComponentProducts = () => {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    disableSelectionOnClick
                     experimentalFeatures={{ newEditingApi: true }}
+                    onSelectionModelChange={(item) => setChecked(item)}
                 />
             </div>
-            <DialogProduct open={open.open} toggleDialog={toggleDialog} action={open.action} />
+            <DialogProduct open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
         </ComponentSkeleton>
     );
 };
