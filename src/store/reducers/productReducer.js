@@ -1,11 +1,11 @@
 import actionTypes from 'store/actions/actionTypes';
 
-export const initialState = {
-    products: [1, 2, 3],
+export const initialStateProduct = {
+    products: [],
     product: {}
 };
 
-const productReducer = (state = initialState, action) => {
+const productReducer = (state = initialStateProduct, action) => {
     switch (action.type) {
         case actionTypes.GET_ALL_PRODUCT_SUCCESS:
             return {
@@ -16,6 +16,16 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: []
+            };
+        case actionTypes.GET_SINGLE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                product: action.product
+            };
+        case actionTypes.GET_SINGLE_PRODUCT_FAIL:
+            return {
+                ...state,
+                product: {}
             };
         default:
             return state;

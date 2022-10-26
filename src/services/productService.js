@@ -4,4 +4,8 @@ const handleGetAllProduct = () => {
     return axios.get(`https://fakestoreapi.com/products`);
 };
 
-export { handleGetAllProduct };
+const handleGetSingleProduct = (id) => {
+    return axios.get(`https://fakestoreapi.com/products/${id}`);
+};
+
+export { handleGetAllProduct, handleGetSingleProduct };

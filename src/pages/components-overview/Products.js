@@ -9,8 +9,8 @@ import DialogProduct from './DialogProduct';
 import { useState, useEffect, useReducer } from 'react';
 
 import * as actions from '../../store/actions/index';
-import productReducer, { initialState } from '../../store/reducers/productReducer';
-import { handleGetAllProduct } from 'services/productService';
+import productReducer, { initialStateProduct } from '../../store/reducers/productReducer';
+import { handleGetAllProduct, handleGetSingleProduct } from 'services/productService';
 
 // ===============================|| COLOR BOX ||=============================== //
 
@@ -60,9 +60,9 @@ const ComponentProducts = () => {
 
     const [checked, setChecked] = useState([]);
 
-    const [state, dispatch] = useReducer(productReducer, initialState);
+    const [state, dispatch] = useReducer(productReducer, initialStateProduct);
 
-    const { products } = state;
+    const { products, product } = state;
 
     const toggleDialog = (action) => {
         let openCopy = { ...open };
@@ -80,6 +80,16 @@ const ComponentProducts = () => {
         }
     };
 
+    const getProductById = async (id) => {
+        try {
+            let res = await handleGetSingleProduct(id);
+            dispatch(actions.getSingleProductSuccess(res.data));
+            toggleDialog('edit');
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     useEffect(() => {
         getAllProduct();
     }, []);
@@ -90,7 +100,7 @@ const ComponentProducts = () => {
                 <Button variant="outlined" color="error">
                     Delete
                 </Button>
-                <Button variant="outlined" color="success" onClick={() => toggleDialog('edit')}>
+                <Button variant="outlined" color="success" onClick={() => getProductById(checked.at(0))}>
                     Edit
                 </Button>
                 <Button variant="contained" onClick={() => toggleDialog('add')}>
@@ -113,11 +123,10 @@ const ComponentProducts = () => {
                     rowsPerPageOptions={[5]}
                     checkboxSelection
                     onSelectionModelChange={(item) => setChecked(item)}
-                    getRowId={(row) => row.key}
                     getRowHeight={() => 200}
                 />
             </div>
-            <DialogProduct open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
+            <DialogProduct open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} product={product} />
         </ComponentSkeleton>
     );
 };

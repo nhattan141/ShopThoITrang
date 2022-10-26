@@ -27,3 +27,13 @@ export const getAllProductsFail = () => ({
     type: actionTypes.GET_ALL_PRODUCT_FAIL,
     products: []
 });
+
+export const getSingleProductSuccess = (data) => ({
+    type: actionTypes.GET_SINGLE_PRODUCT_SUCCESS,
+    product: data
+});
+
+export const getSingleProductFailure = () => ({
+    type: actionTypes.GET_SINGLE_PRODUCT_FAIL,
+    product: {}
+});
