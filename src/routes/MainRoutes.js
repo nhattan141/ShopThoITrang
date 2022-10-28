@@ -18,6 +18,7 @@ const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons'
 const Products = Loadable(lazy(() => import('pages/components-overview/Products')));
 const Orders = Loadable(lazy(() => import('pages/components-overview/Orders')));
 const Categories = Loadable(lazy(() => import('pages/components-overview/Categories')));
+const ManagementAdmin = Loadable(lazy(() => import('pages/components-overview/ManagementAdmin')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -69,6 +70,10 @@ const MainRoutes = {
         {
             path: 'categories',
             element: <Categories />
+        },
+        {
+            path: 'ManagementAdmin',
+            element: <ManagementAdmin />
         }
     ]
 };
