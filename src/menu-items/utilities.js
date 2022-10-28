@@ -80,7 +80,7 @@ const utilities = {
             type: 'item',
             url: '/ManagementAdmin',
             icon: icons.UserOutlined
-        },
+        }
     ]
 };
 

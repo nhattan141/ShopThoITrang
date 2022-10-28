@@ -1,0 +1,99 @@
+.container {
+    max-width: 80vw;
+    height: 113px;
+    margin: 31px auto;
+    background-color: transparent;
+    z-index: 1;
+    border: 1px solid;
+
+    .content {
+        width: 100%;
+        height: 100%;
+        border: 1px solid;
+
+        .top-header {
+            width: 100%;
+            height: 59px;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid;
+
+            .search-box {
+                width: 220px;
+                height: 100%;
+                border: 1px solid;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .logo {
+                width: 180px;
+                height: 100%;
+                border: 1px solid;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .util {
+                width: 220px;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                border: 1px solid;
+
+                .account {
+                    width: 45%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    border: 1px solid;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .shopping {
+                    width: 45%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    border: 1px solid;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .bot-header {
+            height: 24px;
+
+            .nav-container {
+
+                .nav-content {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .link {
+                        text-decoration: none;
+                        color: #000;
+                        line-height: 24px;
+
+                        &:hover {
+                            border-bottom: 1px solid;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
