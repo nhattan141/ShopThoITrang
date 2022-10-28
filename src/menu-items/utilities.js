@@ -73,7 +73,14 @@ const utilities = {
             url: '/icons/ant',
             icon: icons.AntDesignOutlined,
             breadcrumbs: false
-        }
+        },
+        {
+            id: 'util-ManagementAdmin',
+            title: 'ManagementAdmin',
+            type: 'item',
+            url: '/ManagementAdmin',
+            icon: icons.UserOutlined
+        },
     ]
 };
 
