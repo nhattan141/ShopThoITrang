@@ -17,7 +17,7 @@ const HomeRoutes = {
         },
         {
             path: 'jew',
-            element: <MainHome />
+            element: <HomeLayout />
         }
     ]
 };

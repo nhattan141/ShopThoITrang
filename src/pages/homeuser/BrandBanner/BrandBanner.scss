@@ -1,0 +1,94 @@
+.banner-container {
+    width: 100%;
+    height: 776px;
+    margin-top: 140px;
+    background-image: url(../../../assets/images/banner/banner.png);
+    background-repeat: no-repeat;
+    background-position: 71%;
+    // background-attachment: fixed;
+    border: 1px solid;
+
+    .banner-content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid;
+
+        .logo-1-container {
+            position: absolute;
+            width: 732px;
+            height: 309px;
+            top: 10%;
+            right: -240px;
+            opacity: 0.08;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .logo-2-container {
+            position: absolute;
+            width: 504px;
+            height: 422px;
+            left: 50%;
+            top: 35%;
+
+            .logo-2-content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .banner-logo {
+                    width: 191px;
+                    height: 81px;
+                }
+
+                .banner-title {
+                    width: 504px;
+                    height: 147px;
+
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 26px;
+                    line-height: 30px;
+                    text-transform: capitalize;
+
+                    color: #FFFFFF;
+                }
+
+                .banner-button {
+                    width: 245px;
+                    height: 72px;
+
+                    button {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        width: 245px;
+
+                        background: #FFFFFF;
+
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 29px;
+                        line-height: 55px;
+                        /* identical to box height, or 190% */
+
+                        text-align: center;
+                        text-transform: capitalize;
+
+                        color: #000000;
+                    }
+                }
+            }
+        }
+    }
+}
