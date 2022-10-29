@@ -9,7 +9,6 @@ const TopMain = () => {
     return (
         <div className="topmain-container">
             <div className="topmain-content">
-                <Header />
                 <div className="topmain-product">
                     <div className="topmain-left">
                         <div className="title">Collections</div>

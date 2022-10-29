@@ -3,21 +3,21 @@ import { lazy } from 'react';
 import Loadable from '../components/Loadable';
 import HomeLayout from 'layout/HomeLayout/index';
 
-const TopMain = Loadable(lazy(() => import('layout/HomeLayout/TopMain/TopMain')));
+const MainHome = Loadable(lazy(() => import('pages/homeuser/MainHome/MainHome')));
 
 // ==============================|| HOME USER ROUTING ||============================== //
 
 const HomeRoutes = {
-    path: '/home',
+    path: '/',
     element: <HomeLayout />,
     children: [
         {
-            path: '/home/',
-            element: <TopMain />
+            path: 'home',
+            element: <MainHome />
         },
         {
-            path: '/home/jew',
-            element: <TopMain />
+            path: 'jew',
+            element: <MainHome />
         }
     ]
 };

@@ -1,7 +1,12 @@
 .container {
     max-width: 80vw;
     height: 113px;
-    margin: 31px auto;
+    position: absolute;
+    top: 31px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     background-color: transparent;
     z-index: 1;
     border: 1px solid;

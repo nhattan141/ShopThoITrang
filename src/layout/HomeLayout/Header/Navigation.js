@@ -5,25 +5,25 @@ const Navigation = () => {
     return (
         <div className="nav-container">
             <div className="nav-content">
-                <Link to="/home/jew" className="link">
+                <Link to="/jew" className="link">
                     Jewelry & Accessories
                 </Link>
-                <Link to="/home/clothing" className="link">
+                <Link to="/clothing" className="link">
                     Clothing & Shoes
                 </Link>
-                <Link to="/home/living" className="link">
+                <Link to="/living" className="link">
                     Home & Living
                 </Link>
-                <Link to="/home/wedding" className="link">
+                <Link to="/wedding" className="link">
                     Wedding & Party
                 </Link>
-                <Link to="/home/toys" className="link">
+                <Link to="/toys" className="link">
                     Toys & Entertainment
                 </Link>
-                <Link to="/home/art" className="link">
+                <Link to="/art" className="link">
                     Art & Collectibles
                 </Link>
-                <Link to="/home/craft" className="link">
+                <Link to="/craft" className="link">
                     Craft Supplies & Tools
                 </Link>
             </div>
