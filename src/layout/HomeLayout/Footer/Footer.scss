@@ -1,0 +1,194 @@
+.footer-container {
+    width: 100%;
+    height: 355px;
+    margin-top: 140px;
+    border: 1px solid;
+
+    .footer-content {
+        width: 100%;
+        height: 100%;
+
+        .top-footer {
+            width: 90vw;
+            height: 213px;
+            margin: 0 auto;
+            border: 1px solid;
+
+            .footer-left {
+                width: 367px;
+                height: 197px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                .footer-logo {
+                    width: 180px;
+                    height: 34px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .footer-title {
+                    width: 367px;
+                    height: 78px;
+
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 20px;
+                    text-transform: capitalize;
+
+                    color: #292929;
+                }
+
+                .footer-social {
+                    width: 172px;
+                    height: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #000000;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+
+            .footer-menu {
+                height: 212px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .menu-title {
+                    max-width: 161px;
+                    height: 19px;
+
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 19px;
+                    /* identical to box height */
+
+
+                    color: #000000;
+                }
+
+                .menu-list {
+                    width: 100%;
+                    height: 168px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-start;
+
+                    .menu-item {
+                        height: 24px;
+                        cursor: pointer;
+
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 24px;
+                        /* identical to box height, or 171% */
+
+                        text-transform: capitalize;
+
+                        /* Color Text / Paragraph */
+
+                        color: #292929;
+
+                        &:after {
+                            display: block;
+                            content: '';
+                            border-bottom: solid 1px #292929;
+                            transform: scaleX(0);
+                            transition: transform 250ms ease-in-out;
+                        }
+
+                        &:hover:after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom-footer {
+            width: 100%;
+            height: 52px;
+            margin-top: 90px;
+            background: #1E2832;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .inc {
+                width: 122px;
+                height: 24px;
+
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+
+
+                color: #FFFFFF;
+            }
+
+            .payment {
+                width: 283px;
+                height: 24px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .scroll {
+                width: 99px;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                cursor: pointer;
+
+                color: #FFFFFF;
+
+                .scroll-title {
+                    height: 16px;
+
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 16px;
+                    /* identical to box height, or 133% */
+
+
+                    &:after {
+                        display: block;
+                        content: '';
+                        border-bottom: solid 1px #FFFFFF;
+                        transform: scaleX(0);
+                        transition: transform 250ms ease-in-out;
+                    }
+
+                    &:hover:after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+}

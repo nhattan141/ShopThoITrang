@@ -1,0 +1,182 @@
+.news-container {
+    width: 100%;
+    height: 748px;
+    background: #F1F1F1;
+    margin-top: 140px;
+    border: 1px solid;
+
+    .news-content {
+        width: 90vw;
+        height: 518px;
+        margin: 100px auto;
+        border: 1px solid;
+
+        .news-insta {
+            width: 100%;
+            height: 283px;
+            border: 1px solid;
+
+            .insta-title {
+                height: 53px;
+
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 45px;
+                line-height: 53px;
+                /* identical to box height */
+
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-transform: capitalize;
+
+                color: #000000;
+            }
+
+            .insta-group {
+                width: 100%;
+                height: 170px;
+                display: flex;
+                margin-top: 60px;
+                align-items: center;
+                justify-content: space-between;
+
+                .insta-img {
+                    max-width: 170px;
+                    height: 100%;
+                    border: 1px solid;
+                    cursor: pointer;
+                    background-color: rgb(0, 0, 0) !important;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        transition: 0.6s ease;
+                        backface-visibility: hidden;
+                    }
+
+                    .insta-logo {
+                        position: absolute;
+                        display: none;
+                        top: 40%;
+                        left: 40%;
+                        color: #FFFFFF;
+                        -webkit-animation: fadeEffect 1s;
+                        animation: fadeEffect 1s;
+                    }
+
+                    &:hover>img {
+                        opacity: 0.8 !important;
+                        transition: 0.6s;
+                    }
+
+                    &:hover>.insta-logo {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .news-letter {
+            height: 165px;
+            width: 766px;
+            margin: 70px auto 0;
+            border: 1px solid;
+
+            .letter-title {
+                width: 100%;
+                height: 53px;
+
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 44px;
+                line-height: 53px;
+                /* identical to box height */
+
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-transform: capitalize;
+
+                color: #000000;
+            }
+
+            .letter-form {
+                width: 100%;
+                height: 32px;
+                margin-top: 80px;
+                display: flex;
+                border: 1px solid;
+                align-items: center;
+                justify-content: space-between;
+
+                .form-input {
+                    width: 643px;
+                    height: 100%;
+                    border: 1px solid;
+
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                        border-bottom: 2px solid;
+
+                        &::placeholder {
+                            color: #717171;
+                        }
+                    }
+                }
+
+                .form-btn {
+                    width: 90px;
+                    height: 100%;
+                    border: 1px solid;
+
+                    button {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        border-bottom: 2px solid;
+
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 22px;
+                        /* identical to box height */
+
+                        text-transform: capitalize;
+
+                        color: #000000;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Fade in tabs */
+    @-webkit-keyframes fadeEffect {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeEffect {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}

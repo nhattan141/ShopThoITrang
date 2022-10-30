@@ -109,14 +109,10 @@
                 .list-products {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    flex-direction: column;
-                    gap: 20px;
+                    overflow: auto;
 
                     .card-product {
-                        width: 272px;
+                        max-width: 480px;
                         height: 438px;
                         border: 1px solid;
 

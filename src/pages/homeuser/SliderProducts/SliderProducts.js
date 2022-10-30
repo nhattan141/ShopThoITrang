@@ -30,14 +30,14 @@ const SliderProducts = () => {
     };
 
     const openTab = (event, tab) => {
-        let tabcontents = document.getElementsByClassName('tabcontent');
-        for (let i = 0; i < tabcontents.length; i++) {
-            tabcontents[i].style.display = 'none';
+        let sliderTabcontents = document.getElementsByClassName('slider-tabcontent');
+        for (let i = 0; i < sliderTabcontents.length; i++) {
+            sliderTabcontents[i].style.display = 'none';
         }
 
-        let tablinks = document.getElementsByClassName('tablinks');
-        for (let i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(' active', '');
+        let sliderTablinks = document.getElementsByClassName('slider-tablinks');
+        for (let i = 0; i < sliderTablinks.length; i++) {
+            sliderTablinks[i].className = sliderTablinks[i].className.replace(' active', '');
         }
 
         document.getElementById(tab).style.display = 'block';
@@ -50,16 +50,16 @@ const SliderProducts = () => {
                 <div className="slider-title">Best Sellers</div>
                 <div className="slider-top">
                     <div className="tabs">
-                        <button className="tablinks active" onClick={(event) => openTab(event, 'all')}>
+                        <button className="slider-tablinks active" onClick={(event) => openTab(event, 'slider-all')}>
                             All Products
                         </button>
-                        <button className="tablinks" onClick={(event) => openTab(event, 'tshirt')}>
+                        <button className="slider-tablinks" onClick={(event) => openTab(event, 'slider-tshirt')}>
                             T-Shirt
                         </button>
-                        <button className="tablinks" onClick={(event) => openTab(event, 'hoodies')}>
+                        <button className="slider-tablinks" onClick={(event) => openTab(event, 'slider-hoodies')}>
                             Hoodies
                         </button>
-                        <button className="tablinks" onClick={(event) => openTab(event, 'jacket')}>
+                        <button className="slider-tablinks" onClick={(event) => openTab(event, 'slider-jacket')}>
                             Jacket
                         </button>
                     </div>
@@ -68,7 +68,7 @@ const SliderProducts = () => {
                     </div>
                 </div>
                 <div className="products">
-                    <div className="tabcontent tab-active" id="all">
+                    <div className="slider-tabcontent tab-active" id="slider-all">
                         <div className="list-products">
                             <Slider {...settings}>
                                 <div className="card-product">
@@ -253,13 +253,13 @@ const SliderProducts = () => {
                             </Slider>
                         </div>
                     </div>
-                    <div className="tabcontent" id="tshirt">
+                    <div className="slider-tabcontent" id="slider-tshirt">
                         T-Shirt
                     </div>
-                    <div className="tabcontent" id="hoodies">
+                    <div className="slider-tabcontent" id="slider-hoodies">
                         Hoodies
                     </div>
-                    <div className="tabcontent" id="jacket">
+                    <div className="slider-tabcontent" id="slider-jacket">
                         Jacket
                     </div>
                 </div>

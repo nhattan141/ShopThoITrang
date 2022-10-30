@@ -6,6 +6,7 @@ import HotCategory from '../HotCategory/HotCategory';
 import GridProducts from '../GridProducts/GridProducts';
 import BrandBanner from '../BrandBanner/BrandBanner';
 import SliderProducts from '../SliderProducts/SliderProducts';
+import NewsLetter from '../NewsLetter/NewsLetter';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
@@ -18,6 +19,7 @@ const HomeLayout = () => {
             <GridProducts />
             <BrandBanner />
             <SliderProducts />
+            <NewsLetter />
         </>
     );
 };
