@@ -1,6 +1,6 @@
 .brand-container {
     max-width: 80vw;
-    height: 70px;
+    height: fit-content;
     margin: 90px auto 0;
     border: 1px solid;
 
@@ -15,6 +15,7 @@
         .brand-logo {
             width: 200px;
             height: 70px;
+            margin: auto;
             border: 1px solid;
 
             img {

@@ -13,24 +13,26 @@ const HotCategory = () => {
             <div className="hot-content">
                 <div className="hot-title">Explore new and popular styles</div>
                 <div className="right-content">
-                    <div className="hot-img">
+                    <div className="hot-img-left">
                         <img src={hot1} alt="hotcategory" />
                     </div>
-                    <div className="hot-img">
-                        <img src={hot2} alt="hotcategory" />
-                    </div>
-                    <div className="hot-img">
-                        <img src={hot3} alt="hotcategory" />
-                    </div>
-                    <div className="hot-img">
-                        <img src={hot4} alt="hotcategory" />
-                    </div>
-                    <div className="hot-img">
-                        <img src={hot5} alt="hotcategory" />
-                        <div className="others-container">
-                            <div className="others-content">
-                                <p>Jacket</p>
-                                <p>103 Products</p>
+                    <div className="hot-img-right">
+                        <div className="hot-img">
+                            <img src={hot2} alt="hotcategory" />
+                        </div>
+                        <div className="hot-img">
+                            <img src={hot3} alt="hotcategory" />
+                        </div>
+                        <div className="hot-img">
+                            <img src={hot4} alt="hotcategory" />
+                        </div>
+                        <div className="hot-img">
+                            <img src={hot5} alt="hotcategory" />
+                            <div className="others-container">
+                                <div className="others-content">
+                                    <p>Jacket</p>
+                                    <p>103 Products</p>
+                                </div>
                             </div>
                         </div>
                     </div>
