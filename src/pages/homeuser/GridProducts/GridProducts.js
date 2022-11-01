@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import './GridProducts.scss';
 
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 // icon mui
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -22,6 +24,15 @@ import p7 from '../../../assets/images/card/p7.png';
 import p8 from '../../../assets/images/card/p8.png';
 
 const GridProducts = () => {
+    const Item = styled(Paper)(({ theme }) => ({
+        padding: theme.spacing(1),
+        height: '100%',
+        borderRadius: 0,
+        boxShadow: 'none',
+        backgroundColor: 'transparent',
+        color: theme.palette.text.secondary
+    }));
+
     const openTab = (event, tab) => {
         let tabcontents = document.getElementsByClassName('tabcontent');
         for (let i = 0; i < tabcontents.length; i++) {
@@ -67,199 +78,215 @@ const GridProducts = () => {
                             <Box sx={{ flexGrow: 1 }}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p1} alt="card" />
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p1} alt="card" />
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Adicolor Classics Joggers</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Dress</div>
+                                                    <div className="right-bot">$63.85</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Adicolor Classics Joggers</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Dress</div>
-                                                <div className="right-bot">$63.85</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p5} alt="card" />
-                                                <div className="ribbon">HOT</div>
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p5} alt="card" />
+                                                    <div className="ribbon">HOT</div>
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Basic Dress Green</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Dress</div>
+                                                    <div className="right-bot">$236.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Basic Dress Green</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Dress</div>
-                                                <div className="right-bot">$236.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p2} alt="card" />
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p2} alt="card" />
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Nike Sportswear Futura Luxe</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Bag</div>
+                                                    <div className="right-bot">$130.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Nike Sportswear Futura Luxe</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Bag</div>
-                                                <div className="right-bot">$130.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p6} alt="card" />
-                                                <div className="ribbon sale">SALE</div>
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p6} alt="card" />
+                                                    <div className="ribbon sale">SALE</div>
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Nike Air Zoom Pegasus</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Shoe</div>
+                                                    <div className="right-bot">$198.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Nike Air Zoom Pegasus</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Shoe</div>
-                                                <div className="right-bot">$198.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p3} alt="card" />
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p3} alt="card" />
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Geometric print Scarf</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Scarf</div>
+                                                    <div className="right-bot">$198.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Geometric print Scarf</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Scarf</div>
-                                                <div className="right-bot">$198.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p7} alt="card" />
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p7} alt="card" />
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Nike Repel Miler</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Dress</div>
+                                                    <div className="right-bot">$120.50</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Nike Repel Miler</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Dress</div>
-                                                <div className="right-bot">$120.50</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p4} alt="card" />
-                                                <div className="ribbon sale">SALE</div>
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p4} alt="card" />
+                                                    <div className="ribbon sale">SALE</div>
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Yellow Reserved Hoodie</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Dress</div>
+                                                    <div className="right-bot">$155.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Yellow Reserved Hoodie</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Dress</div>
-                                                <div className="right-bot">$155.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
-                                        <div className="card-product">
-                                            <div className="img-product">
-                                                <img src={p8} alt="card" />
-                                                <div className="access-product">
-                                                    <div className="action-product">
-                                                        <div className="action-product-left">
-                                                            <FavoriteBorderOutlinedIcon />
-                                                            <SearchOutlinedIcon />
-                                                        </div>
-                                                        <div className="action-product-right">
-                                                            <ShoppingBagOutlinedIcon />
-                                                            Shop Now
+                                        <Item>
+                                            <div className="card-product">
+                                                <div className="img-product">
+                                                    <img src={p8} alt="card" />
+                                                    <div className="access-product">
+                                                        <div className="action-product">
+                                                            <div className="action-product-left">
+                                                                <FavoriteBorderOutlinedIcon />
+                                                                <SearchOutlinedIcon />
+                                                            </div>
+                                                            <div className="action-product-right">
+                                                                <ShoppingBagOutlinedIcon />
+                                                                Shop Now
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="title-product">Polarised Sunglasses</div>
+                                                <div className="bottom-product">
+                                                    <div className="left-bot">Glasses</div>
+                                                    <div className="right-bot">$160.00</div>
+                                                </div>
                                             </div>
-                                            <div className="title-product">Polarised Sunglasses</div>
-                                            <div className="bottom-product">
-                                                <div className="left-bot">Glasses</div>
-                                                <div className="right-bot">$160.00</div>
-                                            </div>
-                                        </div>
+                                        </Item>
                                     </Grid>
                                 </Grid>
                             </Box>

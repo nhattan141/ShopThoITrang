@@ -25,7 +25,6 @@ const Footer = () => {
         borderRadius: 0,
         boxShadow: 'none',
         backgroundColor: 'transparent',
-        border: '1px solid',
         color: theme.palette.text.secondary
     }));
 
@@ -34,7 +33,7 @@ const Footer = () => {
             <div className="footer-content">
                 <div className="top-footer">
                     <Grid container spacing={2}>
-                        <Grid item xs={4}>
+                        <Grid item xs={6} md={4}>
                             <Item>
                                 <div className="footer-left">
                                     <div className="footer-logo">
@@ -53,7 +52,7 @@ const Footer = () => {
                                 </div>
                             </Item>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={6} md={2}>
                             <Item>
                                 <div className="footer-menu">
                                     <div className="menu-title">CATALOG</div>
@@ -67,7 +66,7 @@ const Footer = () => {
                                 </div>
                             </Item>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={6} md={3}>
                             <Item>
                                 <div className="footer-menu">
                                     <div className="menu-title">ABOUT US</div>
@@ -81,7 +80,7 @@ const Footer = () => {
                                 </div>
                             </Item>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={6} md={3}>
                             <Item>
                                 <div className="footer-menu">
                                     <div className="menu-title">CUSTOMER SERVICES</div>

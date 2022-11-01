@@ -3,24 +3,24 @@
     height: fit-content;
     margin: 0;
     background: #F1F1F1;
-    border: 1px solid;
+
 
     .topmain-content {
         width: 100%;
         height: 100%;
-        border: 1px solid;
+
 
         .topmain-product {
             width: 80vw;
             display: flex;
-            border: 1px solid;
+
             align-items: center;
             justify-content: space-between;
 
             .topmain-left {
                 min-height: 364px;
                 display: flex;
-                border: 1px solid;
+
                 flex-direction: column;
                 justify-content: space-between;
 
@@ -73,7 +73,7 @@
             .topmain-right {
                 // width: 40%;
                 // height: 562px;
-                border: 1px solid;
+
 
                 // &:after {
                 //     content: "";

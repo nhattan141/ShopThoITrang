@@ -4,16 +4,16 @@
     margin-top: 140px;
     background-image: url(../../../assets/images/banner/banner.png);
     background-repeat: no-repeat;
-    background-position: 71%;
+    // background-position: 71%;
     // background-attachment: fixed;
-    border: 1px solid;
+
 
     .banner-content {
         width: 100%;
         height: 100%;
         position: relative;
         overflow: hidden;
-        border: 1px solid;
+
 
         .logo-1-container {
             position: absolute;
@@ -31,9 +31,9 @@
 
         .logo-2-container {
             position: absolute;
-            width: 504px;
+            max-width: 504px;
             height: 422px;
-            left: 50%;
+            // left: 50%;
             top: 35%;
 
             .logo-2-content {
@@ -49,13 +49,13 @@
                 }
 
                 .banner-title {
-                    width: 504px;
+                    width: 100%;
                     height: 147px;
 
                     font-family: 'Roboto';
                     font-style: normal;
                     font-weight: 400;
-                    font-size: 26px;
+                    // font-size: 26px;
                     line-height: 30px;
                     text-transform: capitalize;
 
@@ -88,6 +88,110 @@
 
                         color: #000000;
                     }
+                }
+            }
+        }
+    }
+}
+
+//mobile
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .banner-container {
+        background-position: 30%;
+
+        .logo-2-container {
+            left: 0;
+
+            .logo-2-content {
+                align-items: center;
+
+                .banner-title {
+                    font-size: 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+//tablet
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .banner-container {
+        background-position: 30%;
+
+        .logo-2-container {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            .logo-2-content {
+                align-items: center;
+
+                .banner-title {
+                    font-size: 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+//laptop
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+    .banner-container {
+        background-position: 30%;
+
+        .logo-2-container {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            .logo-2-content {
+                align-items: center;
+
+                .banner-title {
+                    font-size: 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+//desktop
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .banner-container {
+        background-position: 30%;
+
+        .logo-2-container {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            .logo-2-content {
+                align-items: center;
+
+                .banner-title {
+                    font-size: 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+//extra
+@media only screen and (min-width: 1201px) {
+    .banner-container {
+        background-position: 71%;
+
+        .logo-2-container {
+            left: 50%;
+
+            .logo-2-content {
+
+                .banner-title {
+                    font-size: 26px;
                 }
             }
         }

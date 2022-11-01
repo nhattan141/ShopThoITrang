@@ -9,12 +9,12 @@
     right: 0;
     background-color: transparent;
     z-index: 1;
-    border: 1px solid;
+
 
     .content {
         width: 100%;
         height: 100%;
-        border: 1px solid;
+
 
         .top-header {
             width: 100%;
@@ -29,7 +29,7 @@
             .search-box {
                 // width: 220px;
                 height: 15px;
-                border: 1px solid;
+
                 display: flex;
                 align-items: center;
 
@@ -41,7 +41,7 @@
             .logo {
                 width: 180px;
                 height: 34px;
-                border: 1px solid;
+
 
                 &:hover {
                     cursor: pointer;
@@ -53,14 +53,14 @@
                 height: 24px;
                 display: flex;
                 justify-content: space-between;
-                border: 1px solid;
+
 
                 .account {
                     width: 45%;
                     display: flex;
                     align-items: center;
                     justify-content: space-evenly;
-                    border: 1px solid;
+
 
                     &:hover {
                         cursor: pointer;
@@ -72,7 +72,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-evenly;
-                    border: 1px solid;
+
 
                     &:hover {
                         cursor: pointer;
@@ -96,21 +96,29 @@
                     justify-content: space-between;
 
                     .link {
-                        flex-shrink: 0;
+                        // flex-shrink: 0;
 
                         text-decoration: none;
                         font-family: 'Poppins';
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 11px;
+                        font-size: 14px;
                         line-height: 24px;
                         /* identical to box height, or 150% */
 
 
                         color: #000000;
 
-                        &:hover {
-                            border-bottom: 1px solid;
+                        &:after {
+                            display: block;
+                            content: '';
+                            border-bottom: solid 1px #292929;
+                            transform: scaleX(0);
+                            transition: transform 250ms ease-in-out;
+                        }
+
+                        &:hover:after {
+                            transform: scaleX(1);
                         }
                     }
                 }

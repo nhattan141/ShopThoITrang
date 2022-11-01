@@ -19,7 +19,6 @@ const Brand = () => {
         borderRadius: 0,
         boxShadow: 'none',
         backgroundColor: 'transparent',
-        border: '1px solid',
         textAlign: 'center',
         alignItems: 'center',
         color: theme.palette.text.secondary
