@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import './HotCategory.scss';
-import hot1 from '../../../assets/images/hot/image-category-1.png';
-import hot2 from '../../../assets/images/hot/image-category-2.png';
-import hot3 from '../../../assets/images/hot/image-category-3.png';
-import hot4 from '../../../assets/images/hot/image-category-4.png';
-import hot5 from '../../../assets/images/hot/image-category-5.png';
+import hot1 from '../../../../assets/images/hot/image-category-1.png';
+import hot2 from '../../../../assets/images/hot/image-category-2.png';
+import hot3 from '../../../../assets/images/hot/image-category-3.png';
+import hot4 from '../../../../assets/images/hot/image-category-4.png';
+import hot5 from '../../../../assets/images/hot/image-category-5.png';
 
 const HotCategory = () => {
     return (

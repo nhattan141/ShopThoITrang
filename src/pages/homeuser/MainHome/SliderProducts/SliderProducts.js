@@ -11,14 +11,14 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 // image
-import p1 from '../../../assets/images/card/p1.png';
-import p2 from '../../../assets/images/card/p2.png';
-import p3 from '../../../assets/images/card/p3.png';
-import p4 from '../../../assets/images/card/p4.png';
-import p5 from '../../../assets/images/card/p5.png';
-import p6 from '../../../assets/images/card/p6.png';
-import p7 from '../../../assets/images/card/p7.png';
-import p8 from '../../../assets/images/card/p8.png';
+import p1 from '../../../../assets/images/card/p1.png';
+import p2 from '../../../../assets/images/card/p2.png';
+import p3 from '../../../../assets/images/card/p3.png';
+import p4 from '../../../../assets/images/card/p4.png';
+import p5 from '../../../../assets/images/card/p5.png';
+import p6 from '../../../../assets/images/card/p6.png';
+import p7 from '../../../../assets/images/card/p7.png';
+import p8 from '../../../../assets/images/card/p8.png';
 
 const SliderProducts = () => {
     let settings = {

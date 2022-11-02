@@ -4,6 +4,7 @@ import Loadable from '../components/Loadable';
 import HomeLayout from 'layout/HomeLayout/index';
 
 const MainHome = Loadable(lazy(() => import('pages/homeuser/MainHome/MainHome')));
+const ListProduct = Loadable(lazy(() => import('pages/homeuser/ListProduct/ListProduct')));
 
 // ==============================|| HOME USER ROUTING ||============================== //
 
@@ -12,12 +13,12 @@ const HomeRoutes = {
     element: <HomeLayout />,
     children: [
         {
-            path: 'home',
-            element: <MainHome />
+            path: 'jew',
+            element: <ListProduct category={'jew'} />
         },
         {
-            path: 'jew',
-            element: <HomeLayout />
+            path: '/',
+            element: <MainHome />
         }
     ]
 };

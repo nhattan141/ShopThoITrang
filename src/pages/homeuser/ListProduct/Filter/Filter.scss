@@ -1,0 +1,93 @@
+.filter-container {
+    // border: 1px solid;
+
+    .filter-content {
+        height: 100%;
+        width: 100%;
+        // border: 1px solid;
+
+        .filter-title {
+            min-height: 22px;
+            padding-bottom: 24px;
+            // border-bottom: 1px solid #a5a5a5;
+
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 19px;
+            line-height: 22px;
+            /* identical to box height */
+
+            text-transform: capitalize;
+        }
+
+        .filter-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 24px;
+            // border-bottom: 1px solid #777777;
+
+            .filter-list-summary {
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+
+                button {
+                    outline: none;
+                    border: none;
+                    height: 100%;
+                    background: transparent;
+                    cursor: pointer;
+
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    /* identical to box height */
+
+                    text-transform: capitalize;
+                }
+            }
+
+            .filter-list-detail {
+                width: 80%;
+
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+                /* identical to box height */
+
+                text-transform: capitalize;
+                color: #777777;
+
+                .filter-list-checkbox {
+                    label {
+                        cursor: pointer;
+                    }
+
+                    input {
+                        cursor: pointer;
+                        accent-color: #face8d;
+
+                        &:checked~label {
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+
+            .filter-list-detail-close {
+                display: none;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

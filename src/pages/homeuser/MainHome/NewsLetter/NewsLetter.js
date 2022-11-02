@@ -7,12 +7,12 @@ import Paper from '@mui/material/Paper';
 import './NewsLetter.scss';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-import insta1 from '../../../assets/images/insta/i031.png';
-import insta2 from '../../../assets/images/insta/i0111.png';
-import insta3 from '../../../assets/images/insta/i071.png';
-import insta4 from '../../../assets/images/insta/i0121.png';
-import insta5 from '../../../assets/images/insta/i0141.png';
-import insta6 from '../../../assets/images/insta/i021.png';
+import insta1 from '../../../../assets/images/insta/i031.png';
+import insta2 from '../../../../assets/images/insta/i0111.png';
+import insta3 from '../../../../assets/images/insta/i071.png';
+import insta4 from '../../../../assets/images/insta/i0121.png';
+import insta5 from '../../../../assets/images/insta/i0141.png';
+import insta6 from '../../../../assets/images/insta/i021.png';
 
 const NewsLetter = () => {
     const Item = styled(Paper)(({ theme }) => ({

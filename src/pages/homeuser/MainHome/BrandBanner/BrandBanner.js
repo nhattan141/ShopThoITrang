@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import './BrandBanner.scss';
-import zara2 from '../../../assets/images/banner/Zara_Logo_2.png';
+import zara2 from '../../../../assets/images/banner/Zara_Logo_2.png';
 
 const BrandBanner = () => {
     return (
