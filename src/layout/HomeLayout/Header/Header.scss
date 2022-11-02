@@ -95,7 +95,8 @@
                     overflow-x: 'auto';
                     justify-content: space-between;
 
-                    .link {
+                    .link,
+                    .link_active {
                         // flex-shrink: 0;
 
                         text-decoration: none;
@@ -120,6 +121,11 @@
                         &:hover:after {
                             transform: scaleX(1);
                         }
+                    }
+
+                    .link_active {
+                        border-bottom: solid 1px #292929;
+                        padding-bottom: 4px;
                     }
                 }
             }

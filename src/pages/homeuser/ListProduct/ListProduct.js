@@ -9,7 +9,7 @@ import { Grid, Paper, styled } from '@mui/material';
 
 const ListProduct = (props) => {
     const Item = styled(Paper)(({ theme }) => ({
-        // padding: theme.spacing(1),
+        padding: theme.spacing(1),
         height: '100%',
         borderRadius: 0,
         boxShadow: 'none',
@@ -28,7 +28,7 @@ const ListProduct = (props) => {
                     </Grid>
                     <Grid item xs={12} md={10}>
                         <Item>
-                            <List />
+                            <List category={props.category} />
                         </Item>
                     </Grid>
                 </Grid>

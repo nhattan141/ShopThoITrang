@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 //import component mui
 import { Grid, Box } from '@mui/material';
@@ -24,51 +24,51 @@ const Navigation = () => {
                     <Grid container spacing={2}>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/jew" className="link">
+                                <NavLink to="/jew" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Jewelry & Accessories
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/clothing" className="link">
+                                <NavLink to="/clothing" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Clothing & Shoes
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/living" className="link">
+                                <NavLink to="/living" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Home & Living
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/wedding" className="link">
+                                <NavLink to="/wedding" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Wedding & Party
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/toys" className="link">
+                                <NavLink to="/toys" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Toys & Entertainment
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/art" className="link">
+                                <NavLink to="/art" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Art & Collectibles
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <Link to="/craft" className="link">
+                                <NavLink to="/craft" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
                                     Craft Supplies & Tools
-                                </Link>
+                                </NavLink>
                             </Item>
                         </Grid>
                     </Grid>
