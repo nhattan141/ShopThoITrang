@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
+//import mui icon
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -17,7 +20,9 @@ const Header = () => {
                         <SearchIcon />
                     </div>
                     <div className="logo">
-                        <img src={logo} alt="logo" />
+                        <Link to="/">
+                            <img src={logo} alt="logo" />
+                        </Link>
                     </div>
                     <div className="util">
                         <div className="account">

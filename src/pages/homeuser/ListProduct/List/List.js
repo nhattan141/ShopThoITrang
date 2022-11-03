@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import './List.scss';
+
+//import component MUI
 
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
@@ -31,6 +34,8 @@ const List = (props) => {
         color: theme.palette.text.secondary
     }));
 
+    // ==================== Call API =================
+
     const [state, dispatch] = React.useReducer(productReducer, initialStateProduct);
     const { products } = state;
 
@@ -46,6 +51,8 @@ const List = (props) => {
     React.useEffect(() => {
         getAllProduct();
     }, []);
+
+    // ==================== Pagination =================
 
     let [page, setPage] = React.useState(1);
     const PER_PAGE = 6;
@@ -75,12 +82,16 @@ const List = (props) => {
                                                 <Item>
                                                     <div className="card-product">
                                                         <div className="img-product">
-                                                            <img src={item.image} alt="card" />
+                                                            <Link to={`/product/${item.id}`}>
+                                                                <img src={item.image} alt="card" />
+                                                            </Link>
                                                             <div className="access-product">
                                                                 <div className="action-product">
                                                                     <div className="action-product-left">
                                                                         <FavoriteBorderOutlinedIcon />
-                                                                        <SearchOutlinedIcon />
+                                                                        <Link to={`/product/${item.id}`}>
+                                                                            <SearchOutlinedIcon />
+                                                                        </Link>
                                                                     </div>
                                                                     <div className="action-product-right">
                                                                         <ShoppingBagOutlinedIcon />
