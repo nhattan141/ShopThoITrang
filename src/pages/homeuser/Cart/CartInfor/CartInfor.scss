@@ -1,0 +1,274 @@
+.cart-infor-container {
+    width: 80%;
+    height: fit-content;
+
+    margin: 0 auto;
+
+    .cart-infor-content {
+        width: 100%;
+        height: 100%;
+
+
+        .list-cart-container {
+            width: 100%;
+            height: fit-content;
+
+
+            background: #E3DED3;
+
+            .items-cart {
+                display: flex;
+                flex-direction: column;
+
+
+                .item-cart {
+                    width: 100%;
+                    height: 150px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+
+                    .image-item {
+                        width: 75px;
+                        height: 75px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .infor-item {
+                        height: 75px;
+                        width: 150px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        .infor-title {
+                            width: 100%;
+                            height: 22px;
+
+                            font-family: 'Bebas Neue';
+                            font-style: normal;
+                            font-weight: 800;
+                            font-size: 15px;
+                            line-height: 22px;
+                            text-transform: uppercase;
+
+                            color: #000000;
+                        }
+
+                        .infor-size {
+                            width: 50px;
+                            height: 17px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            font-family: 'Manrope';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 13px;
+                            line-height: 17px;
+                            /* identical to box height */
+
+                            display: flex;
+                            align-items: center;
+
+                            .size-title {
+                                color: #7F7F7F;
+                            }
+
+                            .size-name {
+                                color: #000000;
+                            }
+                        }
+
+                        .infor-quantity {
+                            display: flex;
+                            align-items: center;
+
+                            .quantity-title {
+                                width: 56px;
+                                height: 17px;
+
+                                font-family: 'Manrope';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 13px;
+                                line-height: 17px;
+                                /* identical to box height */
+
+                                display: flex;
+                                align-items: center;
+
+                                color: #7F7F7F;
+                            }
+
+                            .quantity-action {
+                                display: flex;
+                                align-items: center;
+
+                                button {
+                                    width: 15px;
+                                    height: 15px;
+                                    border: none;
+                                    outline: none;
+                                    cursor: pointer;
+                                    border-radius: 2px;
+                                    padding: 0;
+
+                                    background-color: #DD6A64;
+                                    color: #FFFFFF;
+                                }
+
+                                .quantity {
+                                    width: 30px;
+                                    height: 15px;
+                                    line-height: 15px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+
+                    .price-item {
+                        height: 75px
+                    }
+                }
+            }
+
+            .cart-empty {
+                width: 100%;
+                height: 43px;
+
+                font-family: "Manrope";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 12.4199px;
+                line-height: 17px;
+                color: #7F7F7F;
+                text-align: center;
+                line-height: 43px;
+
+                .empty-link {
+                    color: #000000;
+                }
+            }
+        }
+
+        .payment-container {
+            width: 100%;
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            .payment-detail {
+                width: 100%;
+                height: 125px;
+                padding: 20px 30px;
+
+
+                background: #E3DED3;
+
+                .payment-item {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .title {
+                        width: 85px;
+                        height: 17px;
+
+                        font-family: 'Manrope';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 12.4199px;
+                        line-height: 17px;
+                        /* identical to box height */
+
+
+                        color: #7F7F7F;
+                    }
+
+                    .price {
+                        width: 47px;
+                        height: 17px;
+
+                        font-family: 'Manrope';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 12.4199px;
+                        line-height: 17px;
+                        /* identical to box height */
+
+                        text-align: right;
+
+                        color: #000000;
+                    }
+                }
+            }
+
+            .payment-total {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                background: #E3DED3;
+
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 12.4199px;
+                line-height: 17px;
+                /* identical to box height */
+
+
+                color: #000000;
+
+                .total-title {
+                    width: 100px;
+                    height: 17px;
+                }
+
+                .total-price {
+                    width: 100px;
+                    height: 17px;
+                    text-align: right;
+                }
+            }
+
+            .payment-button {
+                width: 100%;
+                height: 44px;
+
+                button {
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+
+                    background: #000000;
+                    border: none;
+                    outline: none;
+
+                    font-family: 'Manrope';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 17px;
+                    /* identical to box height */
+
+                    color: #E3DED3;
+                }
+            }
+        }
+
+    }
+}

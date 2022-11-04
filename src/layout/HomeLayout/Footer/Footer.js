@@ -28,6 +28,13 @@ const Footer = () => {
         color: theme.palette.text.secondary
     }));
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <div className="footer-container">
             <div className="footer-content">
@@ -103,7 +110,7 @@ const Footer = () => {
                     </div>
                     <div className="scroll">
                         <div className="scroll-title">Scroll to top</div>
-                        <ArrowUpwardIcon fontSize="small" />
+                        <ArrowUpwardIcon className="scroll-arrow" onClick={scrollToTop} fontSize="small" />
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@ const List = (props) => {
     // ==================== Pagination =================
 
     let [page, setPage] = React.useState(1);
-    const PER_PAGE = 6;
+    const PER_PAGE = 8;
 
     //dem so trang
     const DATA = usePagination(products, PER_PAGE);
@@ -78,7 +78,7 @@ const List = (props) => {
                                 <Grid container spacing={2}>
                                     {currentData.map((item, index) => {
                                         return (
-                                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                            <Grid item xs={12} sm={6} md={3} key={index}>
                                                 <Item>
                                                     <div className="card-product">
                                                         <div className="img-product">

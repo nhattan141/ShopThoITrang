@@ -31,7 +31,9 @@ const Header = () => {
                         </div>
                         <div className="shopping">
                             <LocalMallOutlinedIcon />
-                            <p>Shopping</p>
+                            <Link to="/cart">
+                                <p>Shopping</p>
+                            </Link>
                         </div>
                     </div>
                 </div>

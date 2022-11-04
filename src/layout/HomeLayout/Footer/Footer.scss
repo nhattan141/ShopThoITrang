@@ -160,9 +160,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-
-                cursor: pointer;
-
                 color: #FFFFFF;
 
                 .scroll-title {
@@ -173,19 +170,13 @@
                     font-weight: 600;
                     font-size: 12px;
                     line-height: 16px;
-                    /* identical to box height, or 133% */
+                }
 
+                .scroll-arrow {
+                    cursor: pointer;
 
-                    &:after {
-                        display: block;
-                        content: '';
-                        border-bottom: solid 1px #FFFFFF;
-                        transform: scaleX(0);
-                        transition: transform 250ms ease-in-out;
-                    }
-
-                    &:hover:after {
-                        transform: scaleX(1);
+                    &:hover {
+                        color: #FF8975;
                     }
                 }
             }

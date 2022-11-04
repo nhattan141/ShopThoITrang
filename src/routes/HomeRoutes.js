@@ -6,6 +6,7 @@ import HomeLayout from 'layout/HomeLayout/index';
 const MainHome = Loadable(lazy(() => import('pages/homeuser/MainHome/MainHome')));
 const ListProduct = Loadable(lazy(() => import('pages/homeuser/ListProduct/ListProduct')));
 const Product = Loadable(lazy(() => import('pages/homeuser/Product/Product')));
+const Cart = Loadable(lazy(() => import('pages/homeuser/Cart/Cart')));
 
 // ==============================|| HOME USER ROUTING ||============================== //
 
@@ -48,6 +49,10 @@ const HomeRoutes = {
         {
             path: 'product/:id',
             element: <Product />
+        },
+        {
+            path: 'cart',
+            element: <Cart />
         }
     ]
 };
