@@ -7,10 +7,19 @@ import GridProducts from './GridProducts/GridProducts';
 import BrandBanner from './BrandBanner/BrandBanner';
 import SliderProducts from './SliderProducts/SliderProducts';
 import NewsLetter from './NewsLetter/NewsLetter';
+import Login from 'pages/LoginReg/Login/Login';
+
+import useToken from 'HOC/useToken';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
 const HomeLayout = () => {
+    const { token, setToken } = useToken();
+
+    if (!token) {
+        return <Login setToken={setToken} />;
+    }
+
     return (
         <>
             <TopMain />
