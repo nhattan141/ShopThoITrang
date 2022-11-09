@@ -13,7 +13,7 @@ const Login = () => {
     const [username, setUsername] = React.useState();
     const [password, setPassword] = React.useState();
     const [errors, setErrors] = React.useState();
-    const { token, setToken } = useToken();
+    const { setToken } = useToken();
     const navigate = useNavigate();
 
     const handleOnChangeUserName = (e) => {
