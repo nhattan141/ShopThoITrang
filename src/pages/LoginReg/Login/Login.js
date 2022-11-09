@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 //import api
 import { handleLoginApi } from 'services/loginService';
 
+import useToken from 'HOC/useToken';
+
 import './Login.scss';
 
-const Login = ({ setToken }) => {
+const Login = () => {
     const [username, setUsername] = React.useState();
     const [password, setPassword] = React.useState();
     const [errors, setErrors] = React.useState();
+    const { token, setToken } = useToken();
+    const navigate = useNavigate();
 
     const handleOnChangeUserName = (e) => {
         setUsername(e.target.value);
@@ -25,6 +29,7 @@ const Login = ({ setToken }) => {
             e.preventDefault();
             const res = await handleLoginApi(username, password);
             setToken(res.data);
+            navigate('/');
         } catch (e) {
             console.log(e);
         }
@@ -65,10 +70,6 @@ const Login = ({ setToken }) => {
             </section>
         </div>
     );
-};
-
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
 };
 
 export default Login;
