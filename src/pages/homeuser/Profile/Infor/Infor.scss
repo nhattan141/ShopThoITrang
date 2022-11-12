@@ -1,0 +1,15 @@
+.inforuser-container {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+    .inforuser-content {
+        width: 100%;
+        height: 100%;
+
+        .MuiGrid-item {
+            padding-top: 0;
+        }
+    }
+}

@@ -27,7 +27,9 @@ const Header = () => {
                     <div className="util">
                         <div className="account">
                             <PersonOutlineOutlinedIcon />
-                            <p>Account</p>
+                            <Link to="/profile">
+                                <p>Account</p>
+                            </Link>
                         </div>
                         <div className="shopping">
                             <LocalMallOutlinedIcon />

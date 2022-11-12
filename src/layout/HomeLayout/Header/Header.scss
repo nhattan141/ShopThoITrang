@@ -70,6 +70,22 @@
 
                     color: #0B0B0B;
 
+                    a {
+                        text-decoration: none;
+
+                        font-family: 'Poppins';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 24px;
+                        /* identical to box height, or 171% */
+
+
+                        /* Main / Middle Black */
+
+                        color: #0B0B0B;
+                    }
+
                     &:hover {
                         cursor: pointer;
                     }
