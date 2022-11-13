@@ -47,140 +47,138 @@ const Inforuser = () => {
     };
 
     return (
-        <div className="inforuser-container">
-            <div className="inforuser-content">
-                <Grid
-                    container
-                    spacing={6}
-                    sx={{
-                        height: '100%',
-                        mt: 0
-                    }}
-                >
-                    <Grid item xs={12} md={6}>
-                        <Item>
-                            <Stack
-                                direction="column"
-                                justifyContent="center"
-                                alignItems="center"
-                                spacing={3}
-                                sx={{
-                                    height: '100%'
-                                }}
-                            >
-                                <Avatar
-                                    alt="UserAvatar"
-                                    src={avatar1}
-                                    sx={{
-                                        width: '300px',
-                                        height: '300px',
-                                        borderRadius: '10px'
-                                    }}
-                                />
-                                <Button
-                                    sx={{
-                                        backgroundColor: '#face8d',
-                                        color: '#333',
-                                        transition: '0.5s',
-                                        '&:hover': {
-                                            backgroundColor: '#FF8975',
-                                            color: '#f7f7f7'
-                                        }
-                                    }}
-                                    variant="contained"
-                                    startIcon={<PhotoCamera />}
-                                    component="label"
-                                >
-                                    UPLOAD
-                                    <input hidden accept="image/*" type="file" />
-                                </Button>
-                            </Stack>
-                        </Item>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Box
-                            component="form"
+        <Grid
+            container
+            spacing={0}
+            sx={{
+                border: '1px solid rgba(0, 0, 0, 0.25)',
+                height: '100%',
+                mt: 0,
+                borderRadius: '5px'
+            }}
+        >
+            <Grid item xs={12} md={6}>
+                <Item>
+                    <Stack
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                        spacing={3}
+                        sx={{
+                            height: '100%'
+                        }}
+                    >
+                        <Avatar
+                            alt="UserAvatar"
+                            src={avatar1}
                             sx={{
-                                '& > :not(style)': { m: 1, width: '50ch' },
-                                p: 1,
-                                height: '100%',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'space-around',
-                                alignItems: 'center'
+                                width: '300px',
+                                height: '300px',
+                                borderRadius: '10px'
                             }}
-                            noValidate
-                            autoComplete="off"
+                        />
+                        <Button
+                            sx={{
+                                backgroundColor: '#face8d',
+                                color: '#333',
+                                transition: '0.5s',
+                                '&:hover': {
+                                    backgroundColor: '#FF8975',
+                                    color: '#f7f7f7'
+                                }
+                            }}
+                            variant="contained"
+                            startIcon={<PhotoCamera />}
+                            component="label"
                         >
-                            <TextField
-                                label="User name"
-                                value={information.name}
-                                onChange={handleOnchangeInput('name')}
-                                helperText=""
-                                color="secondary"
-                            />
-                            <TextField
-                                label="Address"
-                                value={information.address}
-                                onChange={handleOnchangeInput('address')}
-                                helperText=""
-                                color="secondary"
-                            />
-                            <TextField
-                                label="Phone"
-                                value={information.phone}
-                                onChange={handleOnchangeInput('phone')}
-                                helperText=""
-                                color="secondary"
-                            />
-                            <TextField
-                                id="outlined-select-currency"
-                                select
-                                label="Sex"
-                                value={information.sex}
-                                color="secondary"
-                                onChange={handleOnchangeInput('sex')}
-                                helperText=""
-                            >
-                                {currencies.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={3}>
-                                <Button
-                                    sx={{
-                                        backgroundColor: '#face8d',
-                                        color: '#333',
-                                        transition: '0.5s',
-                                        '&:hover': {
-                                            backgroundColor: '#FF8975',
-                                            color: '#f7f7f7'
-                                        }
-                                    }}
-                                    variant="contained"
-                                >
-                                    Save
-                                </Button>
-                                <Button
-                                    sx={{
-                                        color: '#c0c0c0',
-                                        transition: '0.5s',
-                                        '&:hover': {
-                                            color: '#333'
-                                        }
-                                    }}
-                                    variant="text"
-                                >
-                                    Cancel
-                                </Button>
-                            </Stack>
-                        </Box>
-                    </Grid>
-                </Grid>
-            </div>
-        </div>
+                            UPLOAD
+                            <input hidden accept="image/*" type="file" />
+                        </Button>
+                    </Stack>
+                </Item>
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <Box
+                    component="form"
+                    sx={{
+                        '& > :not(style)': { m: 1, width: '50ch' },
+                        p: 1,
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-around',
+                        alignItems: 'center'
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        label="User name"
+                        value={information.name}
+                        onChange={handleOnchangeInput('name')}
+                        helperText=""
+                        color="secondary"
+                    />
+                    <TextField
+                        label="Address"
+                        value={information.address}
+                        onChange={handleOnchangeInput('address')}
+                        helperText=""
+                        color="secondary"
+                    />
+                    <TextField
+                        label="Phone"
+                        value={information.phone}
+                        onChange={handleOnchangeInput('phone')}
+                        helperText=""
+                        color="secondary"
+                    />
+                    <TextField
+                        id="outlined-select-currency"
+                        select
+                        label="Sex"
+                        value={information.sex}
+                        color="secondary"
+                        onChange={handleOnchangeInput('sex')}
+                        helperText=""
+                    >
+                        {currencies.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={3}>
+                        <Button
+                            sx={{
+                                backgroundColor: '#face8d',
+                                color: '#333',
+                                transition: '0.5s',
+                                '&:hover': {
+                                    backgroundColor: '#FF8975',
+                                    color: '#f7f7f7'
+                                }
+                            }}
+                            variant="contained"
+                        >
+                            Save
+                        </Button>
+                        <Button
+                            sx={{
+                                color: '#c0c0c0',
+                                transition: '0.5s',
+                                '&:hover': {
+                                    color: '#333'
+                                }
+                            }}
+                            variant="text"
+                        >
+                            Cancel
+                        </Button>
+                    </Stack>
+                </Box>
+            </Grid>
+        </Grid>
     );
 };
 

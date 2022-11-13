@@ -8,7 +8,7 @@ import './ChangePass.scss';
 
 const ChangePass = () => {
     const [pass, setPass] = React.useState({
-        oldPass: '12312312321',
+        oldPass: '',
         newPass: '',
         confirmPass: '',
         showPassword: false
@@ -17,8 +17,6 @@ const ChangePass = () => {
     const hanldeOnChangeInput = (prop) => (event) => {
         setPass({ ...pass, [prop]: event.target.value });
     };
-
-    console.log(pass.oldPass);
 
     const handleClickShowPassword = () => {
         setPass({
@@ -34,7 +32,7 @@ const ChangePass = () => {
     return (
         <Grid
             container
-            spacing={2}
+            spacing={0}
             sx={{
                 border: '1px solid rgba(0, 0, 0, 0.25)',
                 height: '100%',
@@ -57,7 +55,7 @@ const ChangePass = () => {
                     autoComplete="off"
                 >
                     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-password">Old Password</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
                             type={pass.showPassword ? 'text' : 'password'}

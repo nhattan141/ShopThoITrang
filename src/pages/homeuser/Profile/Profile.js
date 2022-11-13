@@ -7,6 +7,7 @@ import './Profile.scss';
 //import other components
 import Inforuser from './Infor/Inforuser';
 import ChangePass from './Change/ChangePass';
+import Order from './Order/Order';
 
 //import mui icon
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -128,7 +129,7 @@ const Profile = () => {
                                 <ChangePass />
                             </div>
                             <div className="tabcontent " id="order">
-                                order
+                                <Order />
                             </div>
                         </div>
                     </Grid>
