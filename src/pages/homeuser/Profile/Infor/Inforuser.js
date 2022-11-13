@@ -42,10 +42,8 @@ const Inforuser = () => {
         sex: 1
     });
 
-    const handleOnchangeInput = (e, id) => {
-        let informationCopy = { ...information };
-        informationCopy[id] = e.target.value;
-        setInformation(informationCopy);
+    const handleOnchangeInput = (prop) => (event) => {
+        setInformation({ ...information, [prop]: event.target.value });
     };
 
     return (
@@ -85,7 +83,7 @@ const Inforuser = () => {
                                         color: '#333',
                                         transition: '0.5s',
                                         '&:hover': {
-                                            backgroundColor: '#2196f3',
+                                            backgroundColor: '#FF8975',
                                             color: '#f7f7f7'
                                         }
                                     }}
@@ -100,87 +98,85 @@ const Inforuser = () => {
                         </Item>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Item>
-                            <Box
-                                component="form"
-                                sx={{
-                                    '& > :not(style)': { m: 1, width: '50ch' },
-                                    p: 1,
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'space-around',
-                                    alignItems: 'center'
-                                }}
-                                noValidate
-                                autoComplete="off"
+                        <Box
+                            component="form"
+                            sx={{
+                                '& > :not(style)': { m: 1, width: '50ch' },
+                                p: 1,
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-around',
+                                alignItems: 'center'
+                            }}
+                            noValidate
+                            autoComplete="off"
+                        >
+                            <TextField
+                                label="User name"
+                                value={information.name}
+                                onChange={handleOnchangeInput('name')}
+                                helperText=""
+                                color="secondary"
+                            />
+                            <TextField
+                                label="Address"
+                                value={information.address}
+                                onChange={handleOnchangeInput('address')}
+                                helperText=""
+                                color="secondary"
+                            />
+                            <TextField
+                                label="Phone"
+                                value={information.phone}
+                                onChange={handleOnchangeInput('phone')}
+                                helperText=""
+                                color="secondary"
+                            />
+                            <TextField
+                                id="outlined-select-currency"
+                                select
+                                label="Sex"
+                                value={information.sex}
+                                color="secondary"
+                                onChange={handleOnchangeInput('sex')}
+                                helperText=""
                             >
-                                <TextField
-                                    label="User name"
-                                    value={information.name}
-                                    onChange={(e) => handleOnchangeInput(e, 'name')}
-                                    helperText=""
-                                    color="secondary"
-                                />
-                                <TextField
-                                    label="Address"
-                                    value={information.address}
-                                    onChange={(e) => handleOnchangeInput(e, 'address')}
-                                    helperText=""
-                                    color="secondary"
-                                />
-                                <TextField
-                                    label="Phone"
-                                    value={information.phone}
-                                    onChange={(e) => handleOnchangeInput(e, 'phone')}
-                                    helperText=""
-                                    color="secondary"
-                                />
-                                <TextField
-                                    id="outlined-select-currency"
-                                    select
-                                    label="Sex"
-                                    value={information.sex}
-                                    color="secondary"
-                                    onChange={(e) => handleOnchangeInput(e, 'sex')}
-                                    helperText=""
+                                {currencies.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                            <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={3}>
+                                <Button
+                                    sx={{
+                                        backgroundColor: '#face8d',
+                                        color: '#333',
+                                        transition: '0.5s',
+                                        '&:hover': {
+                                            backgroundColor: '#FF8975',
+                                            color: '#f7f7f7'
+                                        }
+                                    }}
+                                    variant="contained"
                                 >
-                                    {currencies.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                                <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={3}>
-                                    <Button
-                                        sx={{
-                                            backgroundColor: '#face8d',
-                                            color: '#333',
-                                            transition: '0.5s',
-                                            '&:hover': {
-                                                backgroundColor: '#0fc70f',
-                                                color: '#f7f7f7'
-                                            }
-                                        }}
-                                        variant="contained"
-                                    >
-                                        Save
-                                    </Button>
-                                    <Button
-                                        sx={{
-                                            color: '#c0c0c0',
-                                            transition: '0.5s',
-                                            '&:hover': {
-                                                color: '#333'
-                                            }
-                                        }}
-                                        variant="text"
-                                    >
-                                        Cancel
-                                    </Button>
-                                </Stack>
-                            </Box>
-                        </Item>
+                                    Save
+                                </Button>
+                                <Button
+                                    sx={{
+                                        color: '#c0c0c0',
+                                        transition: '0.5s',
+                                        '&:hover': {
+                                            color: '#333'
+                                        }
+                                    }}
+                                    variant="text"
+                                >
+                                    Cancel
+                                </Button>
+                            </Stack>
+                        </Box>
                     </Grid>
                 </Grid>
             </div>

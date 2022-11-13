@@ -6,6 +6,7 @@ import './Profile.scss';
 
 //import other components
 import Inforuser from './Infor/Inforuser';
+import ChangePass from './Change/ChangePass';
 
 //import mui icon
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -124,7 +125,7 @@ const Profile = () => {
                                 <Inforuser />
                             </div>
                             <div className="tabcontent " id="change">
-                                change
+                                <ChangePass />
                             </div>
                             <div className="tabcontent " id="order">
                                 order
