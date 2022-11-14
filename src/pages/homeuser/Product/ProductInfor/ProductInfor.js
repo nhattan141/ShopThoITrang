@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { useParams } from 'react-router-dom';
 
+import useAddCart from 'HOC/useAddCart';
+
 import { Grid, Paper, FormControl, MenuItem, Select, styled } from '@mui/material';
 
 import * as actions from 'store/actions/index';
@@ -19,6 +21,23 @@ const ProductInfor = (props) => {
         backgroundColor: 'transparent',
         color: '#000000'
     }));
+    // ==================== Select Size =================
+
+    const [size, setSize] = React.useState();
+
+    const handleSelectSize = (event) => {
+        setSize(event.target.value);
+    };
+
+    // ==================== useAddCart =================
+    const { cart, setCart } = useAddCart();
+
+    const handleAddProductToCart = (userID, product, size) => {
+        setCart(userID, product, size);
+    };
+
+    console.log(cart.reverse());
+    console.log(cart.length);
 
     // ==================== Call API =================
     let { id } = useParams();
@@ -38,14 +57,6 @@ const ProductInfor = (props) => {
     React.useEffect(() => {
         getProductById(id);
     }, []);
-
-    // ==================== Select Size =================
-
-    const [size, setSize] = React.useState();
-
-    const handleSelectSize = (event) => {
-        setSize(event.target.value);
-    };
 
     return (
         <div className="product-infor-container">
@@ -83,7 +94,13 @@ const ProductInfor = (props) => {
                                     </div>
                                 </div>
                                 <div className="add-cart">
-                                    <button>Add To Cart</button>
+                                    <button
+                                        onClick={() => {
+                                            handleAddProductToCart(1, product, size);
+                                        }}
+                                    >
+                                        Add To Cart
+                                    </button>
                                 </div>
                             </div>
                         </Item>

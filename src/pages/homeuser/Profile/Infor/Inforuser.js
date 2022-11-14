@@ -57,7 +57,7 @@ const Inforuser = () => {
                 borderRadius: '5px'
             }}
         >
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md>
                 <Item>
                     <Stack
                         direction="column"
@@ -97,11 +97,11 @@ const Inforuser = () => {
                     </Stack>
                 </Item>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md>
                 <Box
                     component="form"
                     sx={{
-                        '& > :not(style)': { m: 1, width: '50ch' },
+                        '& > :not(style)': { m: 1, width: '45ch' },
                         p: 1,
                         height: '100%',
                         display: 'flex',
