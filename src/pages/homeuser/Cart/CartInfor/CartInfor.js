@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './CartInfor.scss';
 
+import useAddCart from 'HOC/useAddCart';
+
 import { Grid, Paper, Stack, styled } from '@mui/material';
 
 import p1 from '../../../../assets/images/card/p1.png';
@@ -27,6 +29,8 @@ const CartInfor = (props) => {
         quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1);
     };
 
+    const { cart, addQuantity, minusQuantity } = useAddCart();
+
     return (
         <div className="cart-infor-container">
             <div className="cart-infor-content">
@@ -36,75 +40,46 @@ const CartInfor = (props) => {
                             <div className="list-cart-container">
                                 <div className="items-cart">
                                     <Stack spacing={2}>
-                                        <Item>
-                                            <div className="item-cart">
-                                                <div className="image-item">
-                                                    <img src={p1} alt="item-img" />
-                                                </div>
-                                                <div className="infor-item">
-                                                    <div className="infor-title">quinoa dreams</div>
-                                                    <div className="infor-size">
-                                                        <div className="size-title">size:</div>
-                                                        <div className="size-name">M</div>
-                                                    </div>
-                                                    <div className="infor-quantity">
-                                                        <div className="quantity-title">quantity:</div>
-                                                        <div className="quantity-action">
-                                                            <button onClick={handleDecreaseQuantity}>-</button>
-                                                            <div className="quantity">{quantity}</div>
-                                                            <button onClick={handleIncreaseQuantity}>+</button>
+                                        {cart &&
+                                            cart.map((item, index) => {
+                                                return (
+                                                    <Item key={index}>
+                                                        <div className="item-cart">
+                                                            <div className="image-item">
+                                                                <img src={item.productImg} alt="item-img" />
+                                                            </div>
+                                                            <div className="infor-item">
+                                                                <div className="infor-title">{item.productName}</div>
+                                                                <div className="infor-size">
+                                                                    <div className="size-title">size:</div>
+                                                                    <div className="size-name">{item.productSize}</div>
+                                                                </div>
+                                                                <div className="infor-quantity">
+                                                                    <div className="quantity-title">quantity:</div>
+                                                                    <div className="quantity-action">
+                                                                        <button
+                                                                            onClick={() => {
+                                                                                minusQuantity(item.productId, item.productSize, 1);
+                                                                            }}
+                                                                        >
+                                                                            -
+                                                                        </button>
+                                                                        <div className="quantity">{item.quantity}</div>
+                                                                        <button
+                                                                            onClick={() => {
+                                                                                addQuantity(item.productId, item.productSize, 1);
+                                                                            }}
+                                                                        >
+                                                                            +
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="price-item">{item.productPrice * item.quantity}</div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div className="price-item">$109.09</div>
-                                            </div>
-                                        </Item>
-                                        <Item>
-                                            <div className="item-cart">
-                                                <div className="image-item">
-                                                    <img src={p1} alt="item-img" />
-                                                </div>
-                                                <div className="infor-item">
-                                                    <div className="infor-title">quinoa dreams</div>
-                                                    <div className="infor-size">
-                                                        <div className="size-title">size:</div>
-                                                        <div className="size-name">M</div>
-                                                    </div>
-                                                    <div className="infor-quantity">
-                                                        <div className="quantity-title">quantity:</div>
-                                                        <div className="quantity-action">
-                                                            <button onClick={handleDecreaseQuantity}>-</button>
-                                                            <div className="quantity">{quantity}</div>
-                                                            <button onClick={handleIncreaseQuantity}>+</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="price-item">$109.09</div>
-                                            </div>
-                                        </Item>
-                                        <Item>
-                                            <div className="item-cart">
-                                                <div className="image-item">
-                                                    <img src={p1} alt="item-img" />
-                                                </div>
-                                                <div className="infor-item">
-                                                    <div className="infor-title">quinoa dreams</div>
-                                                    <div className="infor-size">
-                                                        <div className="size-title">size:</div>
-                                                        <div className="size-name">M</div>
-                                                    </div>
-                                                    <div className="infor-quantity">
-                                                        <div className="quantity-title">quantity:</div>
-                                                        <div className="quantity-action">
-                                                            <button onClick={handleDecreaseQuantity}>-</button>
-                                                            <div className="quantity">{quantity}</div>
-                                                            <button onClick={handleIncreaseQuantity}>+</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="price-item">$109.09</div>
-                                            </div>
-                                        </Item>
+                                                    </Item>
+                                                );
+                                            })}
                                     </Stack>
                                 </div>
                                 <div className="cart-empty">

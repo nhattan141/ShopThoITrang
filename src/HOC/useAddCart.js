@@ -23,6 +23,7 @@ export default function useAddCart() {
         return {
             userId: userId,
             productId: product.id,
+            productImg: product.image,
             productName: product.title,
             productPrice: product.price,
             productSize: size,
@@ -43,8 +44,32 @@ export default function useAddCart() {
         saveCart();
     }
 
+    function increaseQuantity(productid, size, count) {
+        for (var i in cart) {
+            if (cart[i].productId === productid && cart[i].productSize === size) {
+                cart[i].quantity += count;
+                setCart([...cart]);
+                saveCart();
+                break;
+            }
+        }
+    }
+
+    function decreaseQuantity(productid, size, count) {
+        for (var i in cart) {
+            if (cart[i].productId === productid && cart[i].productSize === size) {
+                cart[i].quantity -= count;
+                setCart([...cart]);
+                saveCart();
+                break;
+            }
+        }
+    }
+
     return {
         setCart: addCart,
+        addQuantity: increaseQuantity,
+        minusQuantity: decreaseQuantity,
         cart
     };
 }
