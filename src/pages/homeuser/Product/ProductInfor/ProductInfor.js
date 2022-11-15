@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import useAddCart from 'HOC/useAddCart';
 
-import { Grid, Paper, FormControl, MenuItem, Select, styled } from '@mui/material';
+import { Grid, Paper, FormControl, MenuItem, Select, Button, styled } from '@mui/material';
 
 import * as actions from 'store/actions/index';
 import productReducer, { initialStateProduct } from 'store/reducers/productReducer';
@@ -35,9 +35,6 @@ const ProductInfor = (props) => {
     const handleAddProductToCart = (userID, product, size) => {
         setCart(userID, product, size);
     };
-
-    console.log(cart.reverse());
-    console.log(cart.length);
 
     // ==================== Call API =================
     let { id } = useParams();
@@ -94,13 +91,13 @@ const ProductInfor = (props) => {
                                     </div>
                                 </div>
                                 <div className="add-cart">
-                                    <button
+                                    <Button
                                         onClick={() => {
                                             handleAddProductToCart(1, product, size);
                                         }}
                                     >
                                         Add To Cart
-                                    </button>
+                                    </Button>
                                 </div>
                             </div>
                         </Item>

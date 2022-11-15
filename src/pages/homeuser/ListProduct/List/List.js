@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 import './List.scss';
 
-//import component MUI
+import CardProduct from 'layout/HomeLayout/CardProduct/CardProduct';
 
+//import component MUI
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Pagination from '@mui/material/Pagination';
-
-// icon mui
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 //import custome hook
 import usePagination from 'HOC/PaginationHook';
@@ -69,9 +64,6 @@ const List = (props) => {
         DATA.jump(p);
     };
 
-    const { cart, setCart } = useAddCart();
-    console.log(cart);
-
     return (
         <div className="list-container">
             <div className="list-content">
@@ -85,32 +77,14 @@ const List = (props) => {
                                         return (
                                             <Grid item xs={12} sm={6} md={3} key={index}>
                                                 <Item>
-                                                    <div className="card-product">
-                                                        <div className="img-product">
-                                                            <Link to={`/product/${item.id}`}>
-                                                                <img src={item.image} alt="card" />
-                                                            </Link>
-                                                            <div className="access-product">
-                                                                <div className="action-product">
-                                                                    <div className="action-product-left">
-                                                                        <FavoriteBorderOutlinedIcon />
-                                                                        <Link to={`/product/${item.id}`}>
-                                                                            <SearchOutlinedIcon />
-                                                                        </Link>
-                                                                    </div>
-                                                                    <div className="action-product-right">
-                                                                        <ShoppingBagOutlinedIcon />
-                                                                        Shop Now
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="title-product">{item.title}</div>
-                                                        <div className="bottom-product">
-                                                            <div className="left-bot">{item.category}</div>
-                                                            <div className="right-bot">{item.price}</div>
-                                                        </div>
-                                                    </div>
+                                                    <CardProduct
+                                                        id={item.id}
+                                                        title={item.title}
+                                                        category={item.category}
+                                                        price={item.price}
+                                                        image={item.image}
+                                                        product={item}
+                                                    />
                                                 </Item>
                                             </Grid>
                                         );

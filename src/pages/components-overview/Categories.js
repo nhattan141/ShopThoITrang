@@ -33,15 +33,7 @@ const rows = [
     { id: 8, name: 'Frances' },
     { id: 9, name: 'Roxie' }
 ];
-const listCate = [
-    { title: '1' },
-    { title: '2' },
-    { title: '3' },
-    { title: '4' },
-    { title: '5' },
-    { title: '6' },
-    { title: '7' },
-  ];
+const listCate = [{ title: '1' }, { title: '2' }, { title: '3' }, { title: '4' }, { title: '5' }, { title: '6' }, { title: '7' }];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
@@ -74,20 +66,21 @@ const ComponentCategories = () => {
                 <Button variant="contained" onClick={() => toggleDialog('add')}>
                     Add new
                 </Button>
-                <Autocomplete style={{width:300}}
+                <Autocomplete
+                    style={{ width: 300 }}
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
                     options={listCate.map((option) => option.title)}
                     renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search input"
-                        InputProps={{
-                        ...params.InputProps,
-                        type: 'search',
-                        }}
-                    />
+                        <TextField
+                            {...params}
+                            label="Search input"
+                            InputProps={{
+                                ...params.InputProps,
+                                type: 'search'
+                            }}
+                        />
                     )}
                 />
             </Stack>

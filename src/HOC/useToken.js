@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function useToken() {
+    const navigate = useNavigate();
+
     const getToken = () => {
         const tokenString = localStorage.getItem('token');
         const userToken = JSON.parse(tokenString);
@@ -14,8 +17,16 @@ export default function useToken() {
         setToken(userToken.token);
     };
 
+    const removeToken = () => {
+        localStorage.clear();
+        // navigate('/');
+        location.replace('/free');
+    };
+
     return {
         setToken: saveToken,
+        getToken,
+        removeToken,
         token
     };
 }

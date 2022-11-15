@@ -1,11 +1,19 @@
 import * as React from 'react';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import { useNavigate } from 'react-router-dom';
+
+import { Button } from '@mui/material';
 
 import './TopMain.scss';
-import Header from '../Header/Header';
 import TopMainImg from '../../../assets/images/TopMainImg.png';
 
 const TopMain = () => {
+    const navigate = useNavigate();
+
+    const handleNaToShop = () => {
+        navigate('/jew');
+    };
+
     return (
         <div className="topmain-container">
             <div className="topmain-content">
@@ -14,10 +22,10 @@ const TopMain = () => {
                         <div className="title">Collections</div>
                         <div className="description">You can explore and shop many different collection from various barands here</div>
                         <div className="button">
-                            <button>
+                            <Button variant="contained" onClick={handleNaToShop}>
                                 <LocalMallOutlinedIcon />
                                 Shop Now
-                            </button>
+                            </Button>
                         </div>
                     </div>
                     <div className="topmain-right">

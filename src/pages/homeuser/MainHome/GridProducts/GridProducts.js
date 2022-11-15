@@ -23,6 +23,8 @@ import p6 from '../../../../assets/images/card/p6.png';
 import p7 from '../../../../assets/images/card/p7.png';
 import p8 from '../../../../assets/images/card/p8.png';
 
+import CardProduct from 'layout/HomeLayout/CardProduct/CardProduct';
+
 const GridProducts = () => {
     const Item = styled(Paper)(({ theme }) => ({
         padding: theme.spacing(1),
@@ -79,213 +81,90 @@ const GridProducts = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p1} alt="card" />
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Adicolor Classics Joggers</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Dress</div>
-                                                    <div className="right-bot">$63.85</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={1}
+                                                title={'Adicolor Classics Joggers'}
+                                                category={'Dress'}
+                                                price={'$63.85'}
+                                                image={p1}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p5} alt="card" />
-                                                    <div className="ribbon">HOT</div>
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Basic Dress Green</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Dress</div>
-                                                    <div className="right-bot">$236.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={2}
+                                                title={'Basic Dress Green'}
+                                                category={'Dress'}
+                                                price={'$236.00'}
+                                                image={p5}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p2} alt="card" />
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Nike Sportswear Futura Luxe</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Bag</div>
-                                                    <div className="right-bot">$130.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Nike Sportswear Futura Luxe'}
+                                                category={'Bag'}
+                                                price={'$130.00'}
+                                                image={p2}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p6} alt="card" />
-                                                    <div className="ribbon sale">SALE</div>
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Nike Air Zoom Pegasus</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Shoe</div>
-                                                    <div className="right-bot">$198.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Nike Air Zoom Pegasus'}
+                                                category={'Shoe'}
+                                                price={'$198.00'}
+                                                image={p6}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p3} alt="card" />
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Geometric print Scarf</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Scarf</div>
-                                                    <div className="right-bot">$198.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Geometric print Scarf'}
+                                                category={'Scarf'}
+                                                price={'$198.00'}
+                                                image={p3}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p7} alt="card" />
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Nike Repel Miler</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Dress</div>
-                                                    <div className="right-bot">$120.50</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Nike Repel Miler'}
+                                                category={'Dress'}
+                                                price={'$120.50'}
+                                                image={p7}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p4} alt="card" />
-                                                    <div className="ribbon sale">SALE</div>
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Yellow Reserved Hoodie</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Dress</div>
-                                                    <div className="right-bot">$155.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Yellow Reserved Hoodie'}
+                                                category={'Dress'}
+                                                price={'$155.00'}
+                                                image={p4}
+                                            />
                                         </Item>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={3}>
                                         <Item>
-                                            <div className="card-product">
-                                                <div className="img-product">
-                                                    <img src={p8} alt="card" />
-                                                    <div className="access-product">
-                                                        <div className="action-product">
-                                                            <div className="action-product-left">
-                                                                <FavoriteBorderOutlinedIcon />
-                                                                <SearchOutlinedIcon />
-                                                            </div>
-                                                            <div className="action-product-right">
-                                                                <ShoppingBagOutlinedIcon />
-                                                                Shop Now
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="title-product">Polarised Sunglasses</div>
-                                                <div className="bottom-product">
-                                                    <div className="left-bot">Glasses</div>
-                                                    <div className="right-bot">$160.00</div>
-                                                </div>
-                                            </div>
+                                            <CardProduct
+                                                id={3}
+                                                title={'Polarised Sunglasses'}
+                                                category={'Glasses'}
+                                                price={'$160.00'}
+                                                image={p8}
+                                            />
                                         </Item>
                                     </Grid>
                                 </Grid>

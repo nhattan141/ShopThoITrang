@@ -23,7 +23,7 @@
 
                 .item-cart {
                     width: 100%;
-                    height: 150px;
+                    height: 200px;
                     border-bottom: 1px solid;
 
                     display: flex;
@@ -31,8 +31,8 @@
                     justify-content: space-evenly;
 
                     .image-item {
-                        width: 75px;
-                        height: 75px;
+                        width: 100px;
+                        height: 100px;
 
                         img {
                             width: 100%;
@@ -41,8 +41,9 @@
                     }
 
                     .infor-item {
-                        min-height: 75px;
-                        width: 400px;
+                        height: 100px;
+                        width: 300px;
+                        word-wrap: break-word;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
@@ -136,7 +137,10 @@
                     }
 
                     .price-item {
-                        height: 75px
+                        height: 100px;
+                        width: 100px;
+                        word-wrap: break-word;
+                        text-align: right;
                     }
                 }
             }
@@ -170,7 +174,7 @@
 
             .payment-detail {
                 width: 100%;
-                height: 125px;
+                height: fit-content;
                 padding: 20px 30px;
 
 
@@ -189,22 +193,22 @@
                         font-family: 'Manrope';
                         font-style: normal;
                         font-weight: 700;
-                        font-size: 12.4199px;
+                        font-size: 12px;
                         line-height: 17px;
                         /* identical to box height */
-
 
                         color: #7F7F7F;
                     }
 
                     .price {
-                        width: 47px;
+                        width: 100px;
                         height: 17px;
+                        word-wrap: break-word;
 
                         font-family: 'Manrope';
                         font-style: normal;
                         font-weight: 700;
-                        font-size: 12.4199px;
+                        font-size: 12px;
                         line-height: 17px;
                         /* identical to box height */
 
@@ -227,7 +231,7 @@
                 font-family: 'Manrope';
                 font-style: normal;
                 font-weight: 700;
-                font-size: 12.4199px;
+                font-size: 12px;
                 line-height: 17px;
                 /* identical to box height */
 

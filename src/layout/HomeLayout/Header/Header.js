@@ -1,10 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+
 //import mui icon
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+
+//import custom hooks
+import useAddCart from 'HOC/useAddCart';
+import useToken from 'HOC/useToken';
+
+//import image
+import avatar from 'assets/images/users/avatar-1.png';
 
 import logo from '../../../assets/images/logo.svg';
 import './Header.scss';
@@ -12,6 +22,9 @@ import Navigation from './Navigation';
 // ==============================|| MAIN LAYOUT ||============================== //
 
 const Header = () => {
+    const { cart } = useAddCart();
+    const { token } = useToken();
+
     return (
         <div className="container">
             <div className="content">
@@ -26,13 +39,15 @@ const Header = () => {
                     </div>
                     <div className="util">
                         <div className="account">
-                            <PersonOutlineOutlinedIcon />
-                            <Link to="/profile">
-                                <p>Account</p>
+                            {!token ? <PersonOutlineOutlinedIcon /> : <Avatar alt="Remy Sharp" src={avatar} />}
+                            <Link to={!token ? '/login' : '/profile'}>
+                                <p>{!token ? 'Account' : 'Remy Sharp'}</p>
                             </Link>
                         </div>
                         <div className="shopping">
-                            <LocalMallOutlinedIcon />
+                            <Badge badgeContent={cart.length} max={20} color="primary">
+                                <LocalMallOutlinedIcon />
+                            </Badge>
                             <Link to="/cart">
                                 <p>Shopping</p>
                             </Link>

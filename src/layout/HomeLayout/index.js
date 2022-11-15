@@ -11,14 +11,14 @@ import useToken from 'HOC/useToken';
 // ==============================|| MAIN LAYOUT ||============================== //
 
 const HomeLayout = () => {
-    const { token } = useToken();
-    const navigate = useNavigate();
+    // const { token } = useToken();
+    // const navigate = useNavigate();
 
-    React.useEffect(() => {
-        if (!token) {
-            navigate('/login');
-        }
-    }, []);
+    // React.useEffect(() => {
+    //     if (!token) {
+    //         navigate('/login');
+    //     }
+    // }, []);
 
     return (
         <>

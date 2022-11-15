@@ -15,6 +15,9 @@ import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+//import custom hooks
+import useToken from 'HOC/useToken';
+
 const Profile = () => {
     const Item = styled(Paper)(({ theme }) => ({
         // padding: theme.spacing(1),
@@ -26,6 +29,7 @@ const Profile = () => {
     }));
 
     const navigate = useNavigate();
+    const { removeToken } = useToken();
 
     const openTab = (event, tab) => {
         let tabcontents = document.getElementsByClassName('tabcontent');
@@ -39,8 +43,7 @@ const Profile = () => {
         }
 
         if (tab === 'logout') {
-            localStorage.clear();
-            navigate('/');
+            removeToken();
         } else {
             document.getElementById(tab).style.display = 'block';
         }

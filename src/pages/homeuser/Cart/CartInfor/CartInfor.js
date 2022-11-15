@@ -7,8 +7,6 @@ import useAddCart from 'HOC/useAddCart';
 
 import { Grid, Paper, Stack, styled } from '@mui/material';
 
-import p1 from '../../../../assets/images/card/p1.png';
-
 const CartInfor = (props) => {
     const Item = styled(Paper)(({ theme }) => ({
         // padding: theme.spacing(1),
@@ -19,17 +17,11 @@ const CartInfor = (props) => {
         color: '#000000'
     }));
 
-    const [quantity, setQuantity] = React.useState(1);
+    const { cart, total, addQuantity, minusQuantity } = useAddCart();
 
-    const handleIncreaseQuantity = () => {
-        setQuantity(quantity + 1);
-    };
-
-    const handleDecreaseQuantity = () => {
-        quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1);
-    };
-
-    const { cart, addQuantity, minusQuantity } = useAddCart();
+    React.useEffect(() => {
+        console.log(cart.length);
+    }, [cart]);
 
     return (
         <div className="cart-infor-container">
@@ -99,26 +91,20 @@ const CartInfor = (props) => {
                                         <Item>
                                             <div className="payment-item">
                                                 <div className="title">Total Amount:</div>
-                                                <div className="price">$274.79</div>
+                                                <div className="price">{total}</div>
                                             </div>
                                         </Item>
                                         <Item>
                                             <div className="payment-item">
                                                 <div className="title">Shipping Fee:</div>
-                                                <div className="price">NIL</div>
-                                            </div>
-                                        </Item>
-                                        <Item>
-                                            <div className="payment-item">
-                                                <div className="title">Taxes:</div>
-                                                <div className="price">$8.2</div>
+                                                <div className="price"> {total > 100 ? 150 : total === 0 ? 0 : 50} </div>
                                             </div>
                                         </Item>
                                     </Stack>
                                 </div>
                                 <div className="payment-total">
                                     <div className="total-title">TOTAL</div>
-                                    <div className="total-price">$283.17</div>
+                                    <div className="total-price">{total > 100 ? total + 150 : total === 0 ? 0 : total + 50}</div>
                                 </div>
                                 <div className="payment-button">
                                     <button>Pay $283.17</button>

@@ -47,15 +47,7 @@ const rows = [
     { id: 9, name: 'Roxie', stt: 'Completed', total: 400000 }
 ];
 
-const listKey = [
-    { title: '1' },
-    { title: '2' },
-    { title: '3' },
-    { title: '4' },
-    { title: '5' },
-    { title: '6' },
-    { title: '7' },
-  ];
+const listKey = [{ title: '1' }, { title: '2' }, { title: '3' }, { title: '4' }, { title: '5' }, { title: '6' }, { title: '7' }];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
@@ -81,20 +73,21 @@ const ComponentOrders = () => {
                 <Button variant="contained" onClick={() => toggleDialogDetail('add')}>
                     Detailed
                 </Button>
-                <Autocomplete style={{width:300}}
+                <Autocomplete
+                    style={{ width: 300 }}
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
                     options={listKey.map((option) => option.title)}
                     renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search input"
-                        InputProps={{
-                        ...params.InputProps,
-                        type: 'search',
-                        }}
-                    />
+                        <TextField
+                            {...params}
+                            label="Search input"
+                            InputProps={{
+                                ...params.InputProps,
+                                type: 'search'
+                            }}
+                        />
                     )}
                 />
             </Stack>
