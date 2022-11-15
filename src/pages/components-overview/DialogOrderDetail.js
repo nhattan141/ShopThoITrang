@@ -11,7 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 
 import PropTypes from 'prop-types';
 
-const DialogOrder = (props) => {
+const DialogOrderDetail = (props) => {
     console.log('prop: ', props);
 
     const [order, setOrder] = useState({
@@ -46,8 +46,8 @@ const DialogOrder = (props) => {
     ];
 
     return (
-        <Dialog open={props.open} onClose={props.toggleDialog}>
-            <DialogTitle>Edit Order {props.checked}</DialogTitle>
+        <Dialog open={props.open} onClose={props.toggleDialogDetail}>
+            <DialogTitle>View Order Detail {props.checked}</DialogTitle>
             <DialogContent>
                 <Box
                     component="form"
@@ -57,12 +57,13 @@ const DialogOrder = (props) => {
                     noValidate
                     autoComplete="off"
                 >
+                    <TextField disabled id="outlined-required" label="Image" value={order.img} />
                     <TextField disabled id="outlined-required" label="Product Name" value={order.pro_name} />
-                    {/* <TextField disabled id="outlined-required" label="Size" value={order.size} /> */}
-                    {/* <TextField disabled id="outlined-required" label="Quantity" value={order.quantity} /> */}
-                    {/* <TextField disabled id="outlined-required" label="Price" value={order.price} /> */}
+                    <TextField disabled id="outlined-required" label="Size" value={order.size} />
+                    <TextField disabled id="outlined-required" label="Quantity" value={order.quantity} />
+                    <TextField disabled id="outlined-required" label="Price" value={order.price} />
                     <TextField disabled id="outlined-required" label="Total" value={order.total} />
-                    <TextField
+                    {/* <TextField
                         required
                         id="outlined-select-currency"
                         select
@@ -75,22 +76,21 @@ const DialogOrder = (props) => {
                                 {option.label}
                             </MenuItem>
                         ))}
-                    </TextField>
+                    </TextField> */}
                     {props.checked.length !== 1 && <InputLabel error>Please chose 1 and only 1 item what you want to edit</InputLabel>}
                 </Box>
             </DialogContent>
             <DialogActions>
-                <Button onClick={props.toggleDialog}>Cancel</Button>
-                <Button onClick={props.toggleDialog}>{props.action === 'add' ? 'Add new' : 'Update'}</Button>
+                <Button onClick={props.toggleDialogDetail}>Cancel</Button>
             </DialogActions>
         </Dialog>
     );
 };
 
-DialogOrder.propTypes = {
+DialogOrderDetail.propTypes = {
     open: PropTypes.bool.isRequired,
     toggleDialog: PropTypes.func.isRequired,
     checked: PropTypes.array.isRequired
 };
 
-export default DialogOrder;
+export default DialogOrderDetail;

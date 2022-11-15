@@ -5,67 +5,74 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
+
+
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
-import DialogCategory from './DialogCategory';
+import DialogVoucher from './DialogVoucher';
 import { useState } from 'react';
 
 // ===============================|| COLOR BOX ||=============================== //
 
 const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', 
+    headerName: 'ID', 
+    width: 330 },
     {
-        field: 'name',
-        headerName: 'Category Name',
-        width: 200,
+        field: 'from',
+        headerName: 'Ngày có hiệu lực',
+        width: 330,
+        editable: true
+    },
+    {
+        field: 'to',
+        headerName: 'Ngày hết liệu lực',
+        width: 330,
+        editable: true
+    },
+    {
+        field: 'value',
+        headerName: 'Giá trị',
+        width: 330,
         editable: true
     }
 ];
 
 const rows = [
-    { id: 1, name: 'Snow' },
-    { id: 2, name: 'Lannister' },
-    { id: 3, name: 'Lannister' },
-    { id: 4, name: 'Stark' },
-    { id: 5, name: 'Targaryen' },
-    { id: 6, name: 'Melisandre' },
-    { id: 7, name: 'Clifford' },
-    { id: 8, name: 'Frances' },
-    { id: 9, name: 'Roxie' }
+    { id: 'saleD11M115%T' , from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '-15%' },
+    { id: 'saleD11M1110%T', from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '-10%' },
+    { id: 'saleD11M118%T', from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '-8%' },
+    { id: 'saleD11M1120K', from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '-20 000' },
+    { id: 'saleD11M115K', from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '- 15 0000' },
+    { id: 'saleD11M1110K', from: '00:00:00 11-11-2022', to: '29:59:59 12-11-2022 ', value: '-10 000' },
+    { id: 'saleD12M1210%T', from: '00:00:00 11-12-2022', to: '29:59:59 12-12-2022 ', value: '-10%' },
+
 ];
-const listCate = [
-    { title: '1' },
-    { title: '2' },
-    { title: '3' },
-    { title: '4' },
-    { title: '5' },
-    { title: '6' },
-    { title: '7' },
-  ];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
-const ComponentCategories = () => {
-    const [open, setOpen] = useState({
-        open: false,
-        action: ''
-    });
+const ComponentVouchers = () => {
+    const [open, setOpen] = useState(false);
 
-    const [checked, setChecked] = useState([]);
-
-    const toggleDialog = (action) => {
-        let openCopy = { ...open };
-        openCopy.open = !openCopy.open;
-        openCopy.action = action;
-        setOpen(openCopy);
+    const toggleDialog = () => {
+        setOpen(!open);
     };
 
-    console.log('checked: ', checked);
-
+    const [checked, setChecked] = useState([]);
+    
+    const listVoucher = [
+        { title: 'saleD11M115%T' },
+        { title: 'saleD11M1110' },
+        { title: 'saleD11M118%T' },
+        { title: 'saleD11M1120K' },
+        { title: 'saleD11M115K' },
+        { title: 'saleD11M1110K' },
+        { title: 'saleD12M1210%T' },
+      ];
     return (
         <ComponentSkeleton>
             <Stack spacing={2} direction="row" style={{ width: '100%' }}>
-                <Button variant="outlined" color="error">
+                <Button variant="outlined" color="error"  >
                     Delete
                 </Button>
                 <Button variant="outlined" color="success" onClick={() => toggleDialog('edit')}>
@@ -78,7 +85,7 @@ const ComponentCategories = () => {
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
-                    options={listCate.map((option) => option.title)}
+                    options={listVoucher.map((option) => option.title)}
                     renderInput={(params) => (
                     <TextField
                         {...params}
@@ -97,14 +104,14 @@ const ComponentCategories = () => {
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection
                     experimentalFeatures={{ newEditingApi: true }}
                     onSelectionModelChange={(item) => setChecked(item)}
+                    checkboxSelection
                 />
             </div>
-            <DialogCategory open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
+            <DialogVoucher open={open} toggleDialog={toggleDialog} checked={checked} />
         </ComponentSkeleton>
     );
 };
 
-export default ComponentCategories;
+export default ComponentVouchers;

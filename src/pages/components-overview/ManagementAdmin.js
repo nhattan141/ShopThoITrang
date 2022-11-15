@@ -7,33 +7,40 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
-import DialogCategory from './DialogCategory';
-import { useState } from 'react';
+import DialogAccount from './DialogAccount';
+import { useState, useEffect, useReducer } from 'react';
+
+import * as actions from '../../store/actions/index';
+import accountReducer, { initialState } from '../../store/reducers/accountReducer';
+import { handleGetAllAccount } from 'services/accountService';
 
 // ===============================|| COLOR BOX ||=============================== //
 
-const columns = [
+const proColumns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
+        field: 'username',
+        headerName: 'UserName',
+        width: 200
+    },
+    {
+        field: 'password',
+        headerName: 'Password',
+        width: 200
+    },
+    {
         field: 'name',
-        headerName: 'Category Name',
-        width: 200,
-        editable: true
+        headerName: 'Name',
+        width: 200
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200
     }
 ];
 
-const rows = [
-    { id: 1, name: 'Snow' },
-    { id: 2, name: 'Lannister' },
-    { id: 3, name: 'Lannister' },
-    { id: 4, name: 'Stark' },
-    { id: 5, name: 'Targaryen' },
-    { id: 6, name: 'Melisandre' },
-    { id: 7, name: 'Clifford' },
-    { id: 8, name: 'Frances' },
-    { id: 9, name: 'Roxie' }
-];
-const listCate = [
+const listAcount = [
     { title: '1' },
     { title: '2' },
     { title: '3' },
@@ -45,13 +52,17 @@ const listCate = [
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
-const ComponentCategories = () => {
+const ComponentAccounts = () => {
     const [open, setOpen] = useState({
         open: false,
         action: ''
     });
 
     const [checked, setChecked] = useState([]);
+
+    const [state, dispatch] = useReducer(accountReducer, initialState);
+
+    const { accounts } = state;
 
     const toggleDialog = (action) => {
         let openCopy = { ...open };
@@ -60,7 +71,18 @@ const ComponentCategories = () => {
         setOpen(openCopy);
     };
 
-    console.log('checked: ', checked);
+    const getAllAccount = async () => {
+        try {
+            let res = await handleGetAllAccount();
+            dispatch(actions.getAllAccountsSuccess(res.data));
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    useEffect(() => {
+        getAllAccount();
+    }, []);
 
     return (
         <ComponentSkeleton>
@@ -78,7 +100,7 @@ const ComponentCategories = () => {
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
-                    options={listCate.map((option) => option.title)}
+                    options={listAcount.map((option) => option.title)}
                     renderInput={(params) => (
                     <TextField
                         {...params}
@@ -91,20 +113,28 @@ const ComponentCategories = () => {
                     )}
                 />
             </Stack>
-            <div style={{ height: 400, width: '100%', border: '0.2px solid grey', marginTop: '10px' }}>
+            <div style={{ height: 800, width: '100%', border: '0.2px solid grey', marginTop: '10px' }}>
                 <DataGrid
-                    rows={rows}
-                    columns={columns}
+                    rows={accounts.map((account, index) => ({
+                        key: index,
+                        id: account.id,
+                        username: account.username,
+                        password: account.password,
+                        name: account.name, // Chỗ này còn .firstname và .firstname nữa, mà t chưa biết lấy
+                        status: account.__v,
+                    }))}
+                    columns={proColumns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    experimentalFeatures={{ newEditingApi: true }}
                     onSelectionModelChange={(item) => setChecked(item)}
+                    getRowId={(row) => row.key}
+                    getRowHeight={() => 200}
                 />
             </div>
-            <DialogCategory open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
+            <DialogAccount open={open.open} toggleDialog={toggleDialog} action={open.action} checked={checked} />
         </ComponentSkeleton>
     );
 };
 
-export default ComponentCategories;
+export default ComponentAccounts;
