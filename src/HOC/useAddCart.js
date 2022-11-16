@@ -18,20 +18,19 @@ export default function useAddCart() {
 
     const saveCart = () => {
         localStorage.setItem('shopping-cart', JSON.stringify(cart));
-        setCart([...cart]);
     };
 
-    function cartItem(userId, product, size) {
-        // return {
-        this.userId = userId;
-        this.productId = product.id;
-        this.productImg = product.image;
-        this.productName = product.title;
-        this.productPrice = product.price;
-        this.productSize = size;
-        this.quantity = 1;
-        // };
-    }
+    const cartItem = (userId, product, size) => {
+        return {
+            userId: userId,
+            productId: product.id,
+            productImg: product.image,
+            productName: product.title,
+            productPrice: product.price,
+            productSize: size,
+            quantity: 1
+        };
+    };
 
     function addCart(userId, product, size) {
         for (let item in cart) {
@@ -42,7 +41,7 @@ export default function useAddCart() {
                 return;
             }
         }
-        const newItem = new cartItem(userId, product, size);
+        const newItem = cartItem(userId, product, size);
         setCart((cart) => cart.splice(0, 0, newItem));
         saveCart();
         toast.success('Da them vao gio hang thanh cong');
@@ -104,6 +103,7 @@ export default function useAddCart() {
         addQuantity: increaseQuantity,
         minusQuantity: decreaseQuantity,
         getCart,
+        add: setCart,
         cart,
         total
     };

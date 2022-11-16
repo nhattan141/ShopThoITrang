@@ -13,6 +13,7 @@ import Pagination from '@mui/material/Pagination';
 
 //import custome hook
 import usePagination from 'HOC/PaginationHook';
+import useAddCart from 'HOC/useAddCart';
 
 //import store redux
 import * as actions from 'store/actions/index';
@@ -61,6 +62,30 @@ const List = (props) => {
         setPage(p);
         DATA.jump(p);
     };
+
+    const { cart, add } = useAddCart();
+
+    const interval = () => {
+        setInterval(() => {
+            const cartString = localStorage.getItem('shopping-cart');
+            if (cartString != null) {
+                const userCart = JSON.parse(cartString);
+                add(userCart);
+            }
+        }, 4000);
+    };
+
+    React.useEffect(() => {
+        interval();
+    }, []);
+
+    React.useEffect(() => {
+        return () => {
+            clearInterval(interval());
+        };
+    }, []);
+
+    console.log(cart);
 
     return (
         <div className="list-container">

@@ -29,8 +29,10 @@ const Header = () => {
     const interval = () => {
         setInterval(() => {
             const cartString = localStorage.getItem('shopping-cart');
-            const userCart = JSON.parse(cartString);
-            setAmount(userCart.length);
+            if (cartString != null) {
+                const userCart = JSON.parse(cartString);
+                setAmount(userCart.length);
+            }
         });
     };
 

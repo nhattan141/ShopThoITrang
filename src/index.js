@@ -28,8 +28,8 @@ root.render(
             <BrowserRouter basename="/free">
                 <App />
                 <ToastContainer
-                    position="bottom-right"
-                    autoClose={5000}
+                    position="bottom-left"
+                    autoClose={4000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
