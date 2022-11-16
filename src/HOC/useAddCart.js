@@ -99,11 +99,11 @@ export default function useAddCart() {
     }
 
     return {
-        setCart: addCart,
+        setCart,
         addQuantity: increaseQuantity,
         minusQuantity: decreaseQuantity,
         getCart,
-        add: setCart,
+        addCart,
         cart,
         total
     };

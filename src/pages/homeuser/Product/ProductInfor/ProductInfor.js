@@ -30,10 +30,10 @@ const ProductInfor = (props) => {
     };
 
     // ==================== useAddCart =================
-    const { setCart } = useAddCart();
+    const { addCart } = useAddCart();
 
     const handleAddProductToCart = (userID, product, size) => {
-        setCart(userID, product, size);
+        addCart(userID, product, size);
     };
 
     // ==================== Call API =================

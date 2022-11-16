@@ -10,11 +10,11 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './CardProduct.scss';
 
 const CardProduct = (props) => {
-    const { setCart } = useAddCart();
+    const { addCart } = useAddCart();
     const navigate = useNavigate();
 
     const handleAddProductToCart = (userID, product, size) => {
-        setCart(userID, product, size);
+        addCart(userID, product, size);
     };
 
     const handleToProductPage = (id) => {

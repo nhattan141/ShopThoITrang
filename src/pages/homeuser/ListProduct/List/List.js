@@ -63,14 +63,14 @@ const List = (props) => {
         DATA.jump(p);
     };
 
-    const { cart, add } = useAddCart();
+    const { cart, setCart } = useAddCart();
 
     const interval = () => {
         setInterval(() => {
             const cartString = localStorage.getItem('shopping-cart');
             if (cartString != null) {
                 const userCart = JSON.parse(cartString);
-                add(userCart);
+                setCart(userCart);
             }
         }, 4000);
     };
