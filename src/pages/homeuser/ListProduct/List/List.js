@@ -19,8 +19,6 @@ import * as actions from 'store/actions/index';
 import productReducer, { initialStateProduct } from 'store/reducers/productReducer';
 import { handleGetAllProduct } from 'services/productService';
 
-import useAddCart from 'HOC/useAddCart';
-
 const List = (props) => {
     const Item = styled(Paper)(({ theme }) => ({
         padding: theme.spacing(1),

@@ -19,10 +19,6 @@ const CartInfor = (props) => {
 
     const { cart, total, addQuantity, minusQuantity } = useAddCart();
 
-    React.useEffect(() => {
-        console.log(cart.length);
-    }, [cart]);
-
     return (
         <div className="cart-infor-container">
             <div className="cart-infor-content">
@@ -67,7 +63,7 @@ const CartInfor = (props) => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="price-item">{item.productPrice * item.quantity}</div>
+                                                            <div className="price-item">{item.productPrice * item.quantity}&nbsp;VND</div>
                                                         </div>
                                                     </Item>
                                                 );
@@ -91,23 +87,23 @@ const CartInfor = (props) => {
                                         <Item>
                                             <div className="payment-item">
                                                 <div className="title">Total Amount:</div>
-                                                <div className="price">{total}</div>
+                                                <div className="price">{total}&nbsp;VND</div>
                                             </div>
                                         </Item>
                                         <Item>
                                             <div className="payment-item">
                                                 <div className="title">Shipping Fee:</div>
-                                                <div className="price"> {total > 100 ? 150 : total === 0 ? 0 : 50} </div>
+                                                <div className="price">{total > 100 ? 50 : total === 0 ? 0 : 100}&nbsp;VND</div>
                                             </div>
                                         </Item>
                                     </Stack>
                                 </div>
                                 <div className="payment-total">
                                     <div className="total-title">TOTAL</div>
-                                    <div className="total-price">{total > 100 ? total + 150 : total === 0 ? 0 : total + 50}</div>
+                                    <div className="total-price">{total > 100 ? total + 50 : total === 0 ? 0 : total + 100}&nbsp;VND</div>
                                 </div>
                                 <div className="payment-button">
-                                    <button>Pay $283.17</button>
+                                    <button>Pay {total > 100 ? total + 50 : total === 0 ? 0 : total + 100}&nbsp;VND</button>
                                 </div>
                             </div>
                         </Item>

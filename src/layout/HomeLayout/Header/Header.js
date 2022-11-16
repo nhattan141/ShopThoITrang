@@ -24,6 +24,25 @@ import Navigation from './Navigation';
 const Header = () => {
     const { cart } = useAddCart();
     const { token } = useToken();
+    const [amount, setAmount] = React.useState(cart.length);
+
+    const interval = () => {
+        setInterval(() => {
+            const cartString = localStorage.getItem('shopping-cart');
+            const userCart = JSON.parse(cartString);
+            setAmount(userCart.length);
+        });
+    };
+
+    React.useEffect(() => {
+        interval();
+    }, []);
+
+    React.useEffect(() => {
+        return () => {
+            clearInterval(interval());
+        };
+    }, []);
 
     return (
         <div className="container">
@@ -45,7 +64,7 @@ const Header = () => {
                             </Link>
                         </div>
                         <div className="shopping">
-                            <Badge badgeContent={cart.length} max={20} color="primary">
+                            <Badge badgeContent={amount} max={20} color="primary">
                                 <LocalMallOutlinedIcon />
                             </Badge>
                             <Link to="/cart">
