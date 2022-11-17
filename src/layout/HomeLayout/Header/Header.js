@@ -33,7 +33,7 @@ const Header = () => {
                 const userCart = JSON.parse(cartString);
                 setAmount(userCart.length);
             }
-        });
+        }, 1000);
     };
 
     React.useEffect(() => {

@@ -19,8 +19,6 @@ const CartInfor = (props) => {
 
     const { cart, total, addQuantity, minusQuantity } = useAddCart();
 
-    console.log(cart);
-
     return (
         <div className="cart-infor-container">
             <div className="cart-infor-content">

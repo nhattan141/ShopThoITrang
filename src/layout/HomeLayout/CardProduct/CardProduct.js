@@ -15,6 +15,7 @@ const CardProduct = (props) => {
 
     const handleAddProductToCart = (userID, product, size) => {
         addCart(userID, product, size);
+        props.setLength((prevState) => prevState + 1);
     };
 
     const handleToProductPage = (id) => {

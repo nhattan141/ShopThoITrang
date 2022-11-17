@@ -63,29 +63,14 @@ const List = (props) => {
         DATA.jump(p);
     };
 
-    const { cart, setCart } = useAddCart();
+    //====================set length mang cac san pham trong localStorage
+    const [length, setLength] = React.useState(0);
 
-    const interval = () => {
-        setInterval(() => {
-            const cartString = localStorage.getItem('shopping-cart');
-            if (cartString != null) {
-                const userCart = JSON.parse(cartString);
-                setCart(userCart);
-            }
-        }, 4000);
-    };
+    const { getCart } = useAddCart();
 
     React.useEffect(() => {
-        interval();
-    }, []);
-
-    React.useEffect(() => {
-        return () => {
-            clearInterval(interval());
-        };
-    }, []);
-
-    console.log(cart);
+        getCart();
+    }, [length]);
 
     return (
         <div className="list-container">
@@ -107,6 +92,7 @@ const List = (props) => {
                                                         price={item.price}
                                                         image={item.image}
                                                         product={item}
+                                                        setLength={setLength}
                                                     />
                                                 </Item>
                                             </Grid>
