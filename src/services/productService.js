@@ -1,11 +1,13 @@
 import axios from 'axios';
 
+const beUrl = 'http://localhost:5000';
+
 const handleGetAllProduct = () => {
-    return axios.get(`https://fakestoreapi.com/products`);
+    return axios.get(`${beUrl}/products/getProductsFilters`);
 };
 
 const handleGetSingleProduct = (id) => {
-    return axios.get(`https://fakestoreapi.com/products/${id}`);
+    return axios.get(`${beUrl}/products/getProductById/${id}`);
 };
 
 export { handleGetAllProduct, handleGetSingleProduct };

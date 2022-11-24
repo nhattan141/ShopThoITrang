@@ -1,18 +1,30 @@
 import * as React from 'react';
 
+//import custom hooks
+import useToken from 'HOC/useToken';
+import { toast } from 'react-toastify';
+
 //import mui component
 import { Grid, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Stack, Button } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+
+//import api
+import { handleUpdatePassApi } from 'services/accountService';
 
 import './ChangePass.scss';
 
 const ChangePass = () => {
     const [pass, setPass] = React.useState({
-        oldPass: '',
         newPass: '',
         confirmPass: '',
         showPassword: false
     });
+
+    const { tokenApi } = useToken();
+
+    if (tokenApi) {
+        var { user } = tokenApi;
+    }
 
     const hanldeOnChangeInput = (prop) => (event) => {
         setPass({ ...pass, [prop]: event.target.value });
@@ -27,6 +39,30 @@ const ChangePass = () => {
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
+    };
+
+    const handleUpdatePass = async () => {
+        try {
+            if (pass.newPass === pass.confirmPass) {
+                const res = await handleUpdatePassApi(user._id, pass.newPass);
+                if (res && res.status === 200) {
+                    toast.success('Update thanh cong');
+                }
+            } else {
+                toast.error('Confirm password is wrong!');
+            }
+        } catch (e) {
+            console.log(e);
+            toast.error('Co loi xay ra');
+        }
+    };
+
+    const handleCancel = () => {
+        setPass({
+            newPass: '',
+            confirmPass: '',
+            showPassword: false
+        });
     };
 
     return (
@@ -49,33 +85,11 @@ const ChangePass = () => {
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-around',
+                        justifyContent: 'center',
                         alignItems: 'center'
                     }}
                     autoComplete="off"
                 >
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Old Password</InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-password"
-                            type={pass.showPassword ? 'text' : 'password'}
-                            value={pass.oldPass}
-                            onChange={hanldeOnChangeInput('oldPass')}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                        edge="end"
-                                    >
-                                        {pass.showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            label="Password"
-                        />
-                    </FormControl>
                     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-password">New Password</InputLabel>
                         <OutlinedInput
@@ -132,6 +146,7 @@ const ChangePass = () => {
                                 }
                             }}
                             variant="contained"
+                            onClick={handleUpdatePass}
                         >
                             Save
                         </Button>

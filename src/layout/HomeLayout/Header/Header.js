@@ -23,7 +23,7 @@ import Navigation from './Navigation';
 
 const Header = () => {
     const { cart } = useAddCart();
-    const { token } = useToken();
+    const { tokenApi } = useToken();
     const [amount, setAmount] = React.useState(cart.length);
 
     const interval = () => {
@@ -46,6 +46,10 @@ const Header = () => {
         };
     }, []);
 
+    if (tokenApi) {
+        var { token, user } = tokenApi;
+    }
+
     return (
         <div className="container">
             <div className="content">
@@ -60,9 +64,9 @@ const Header = () => {
                     </div>
                     <div className="util">
                         <div className="account">
-                            {!token ? <PersonOutlineOutlinedIcon /> : <Avatar alt="Remy Sharp" src={avatar} />}
+                            {!token ? <PersonOutlineOutlinedIcon /> : <Avatar alt="Remy Sharp" src={user.avatar} />}
                             <Link to={!token ? '/login' : '/profile'}>
-                                <p>{!token ? 'Account' : 'Remy Sharp'}</p>
+                                <p>{!token ? 'Account' : user.name}</p>
                             </Link>
                         </div>
                         <div className="shopping">

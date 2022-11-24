@@ -1,8 +1,13 @@
 import axios from 'axios';
 
+const beUrl = 'http://localhost:5000';
+
 const handleLoginApi = (email, password) => {
-    //call server nodejs
-    return axios.post('https://fakestoreapi.com/auth/login', { username: email, password });
+    return axios.post(`${beUrl}/accounts/login`, { email, password });
 };
 
-export { handleLoginApi };
+const handleSignupApi = (emailSignup, passwordSignup, confirm) => {
+    return axios.post(`${beUrl}/accounts/register`, { emailSignup, passwordSignup, confirm });
+};
+
+export { handleLoginApi, handleSignupApi };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 //import api
 import { handleLoginApi } from 'services/loginService';
@@ -28,10 +29,16 @@ const Login = () => {
         try {
             e.preventDefault();
             const res = await handleLoginApi(username, password);
-            setToken(res.data);
-            navigate('/');
+            if (res && res.status === 200 && res.data.errCode === 0) {
+                toast.success('Login thanh cong');
+                setToken(res.data);
+                navigate('/');
+            } else {
+                setErrors(res.data.errMessage);
+            }
         } catch (e) {
             console.log(e);
+            toast.error('Co loi xay ra');
         }
     };
 
@@ -52,11 +59,12 @@ const Login = () => {
                             <h2>Login Form</h2>
                             <form onSubmit={handleLogin}>
                                 <div className="inputBox">
-                                    <input type="text" onChange={handleOnChangeUserName} placeholder="Username" />
+                                    <input type="text" onChange={handleOnChangeUserName} placeholder="Email" />
                                 </div>
                                 <div className="inputBox">
                                     <input type="password" onChange={handleOnChangePassword} placeholder="Password" />
                                 </div>
+                                <div className="inputBox error">{errors}</div>
                                 <div className="inputBox">
                                     <input type="submit" value="Login" />
                                 </div>

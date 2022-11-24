@@ -21,13 +21,6 @@ const ProductInfor = (props) => {
         backgroundColor: 'transparent',
         color: '#000000'
     }));
-    // ==================== Select Size =================
-
-    const [size, setSize] = React.useState();
-
-    const handleSelectSize = (event) => {
-        setSize(event.target.value);
-    };
 
     // ==================== useAddCart =================
     const { addCart } = useAddCart();
@@ -62,38 +55,20 @@ const ProductInfor = (props) => {
                     <Grid item xs={12} md={6}>
                         <Item>
                             <div className="pro-image">
-                                <img src={product.image} alt="hello" />
+                                <img src={product.Image} alt="hello" />
                             </div>
                         </Item>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Item>
                             <div className="pro-infor">
-                                <div className="title-infor">{product.title}</div>
-                                <div className="price-infor">{product.price}</div>
-                                <div className="detail-infor">{product.description}</div>
-                                <div className="size-infor">
-                                    <div className="title-size">Size</div>
-                                    <div className="btn-size">
-                                        <FormControl fullWidth>
-                                            <Select
-                                                labelId="size"
-                                                id="demo-simple-select-outlined"
-                                                displayEmpty
-                                                value={size}
-                                                onChange={handleSelectSize}
-                                            >
-                                                <MenuItem value={10}>S</MenuItem>
-                                                <MenuItem value={20}>M</MenuItem>
-                                                <MenuItem value={30}>L</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </div>
-                                </div>
+                                <div className="title-infor">{product.Name}</div>
+                                <div className="price-infor">{product.Price}</div>
+                                <div className="detail-infor">{product.Description}</div>
                                 <div className="add-cart">
                                     <Button
                                         onClick={() => {
-                                            handleAddProductToCart(1, product, size);
+                                            handleAddProductToCart(1, product);
                                         }}
                                     >
                                         Add To Cart

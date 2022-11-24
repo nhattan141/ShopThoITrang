@@ -2,14 +2,18 @@ import * as React from 'react';
 
 import './Infor.scss';
 
-import avatar1 from 'assets/images/insta/i0121.png';
+//import custom hooks
+import useToken from 'HOC/useToken';
+import { toast } from 'react-toastify';
 
 //import mui component
-import { Box, TextField, MenuItem, Grid, Paper, Stack, Button, Avatar, styled } from '@mui/material';
-import { deepOrange, green } from '@mui/material/colors';
+import { Box, TextField, Grid, Paper, Stack, Button, Avatar, styled } from '@mui/material';
 
 //import icon mui
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+
+//import api
+import { handleUpdateAccountApi } from 'services/accountService';
 
 const Inforuser = () => {
     const Item = styled(Paper)(({ theme }) => ({
@@ -24,26 +28,46 @@ const Inforuser = () => {
         alignItems: 'center'
     }));
 
-    const currencies = [
-        {
-            value: '1',
-            label: 'Male'
-        },
-        {
-            value: '2',
-            label: 'Female'
-        }
-    ];
+    const { tokenApi } = useToken();
+
+    if (tokenApi) {
+        var { user } = tokenApi;
+    }
 
     const [information, setInformation] = React.useState({
-        name: 'Nhat Tan',
-        address: 'HCM',
-        phone: '09189231',
-        sex: 1
+        email: user.email,
+        name: user.name,
+        address: user.address,
+        phone: user.phone,
+        avatar: '',
+        preview: user.avatar
     });
 
     const handleOnchangeInput = (prop) => (event) => {
         setInformation({ ...information, [prop]: event.target.value });
+    };
+
+    const handleUpdateAccount = async () => {
+        try {
+            const res = await handleUpdateAccountApi(user._id, information.name, information.address, information.phone);
+            if (res && res.status === 200) {
+                toast.success('Update thanh cong, hau dang nhap lai');
+            }
+        } catch (e) {
+            console.log(e);
+            toast.error('Co loi xay ra');
+        }
+    };
+
+    const handleCancel = () => {
+        setInformation({
+            email: user.email,
+            name: user.name,
+            address: user.address,
+            phone: user.phone,
+            avatar: '',
+            preview: user.avatar
+        });
     };
 
     return (
@@ -70,7 +94,7 @@ const Inforuser = () => {
                     >
                         <Avatar
                             alt="UserAvatar"
-                            src={avatar1}
+                            src={information.preview}
                             sx={{
                                 width: '300px',
                                 height: '300px',
@@ -113,6 +137,14 @@ const Inforuser = () => {
                     autoComplete="off"
                 >
                     <TextField
+                        label="Email"
+                        disabled
+                        value={information.email}
+                        onChange={handleOnchangeInput('email')}
+                        helperText=""
+                        color="secondary"
+                    />
+                    <TextField
                         label="User name"
                         value={information.name}
                         onChange={handleOnchangeInput('name')}
@@ -133,21 +165,6 @@ const Inforuser = () => {
                         helperText=""
                         color="secondary"
                     />
-                    <TextField
-                        id="outlined-select-currency"
-                        select
-                        label="Sex"
-                        value={information.sex}
-                        color="secondary"
-                        onChange={handleOnchangeInput('sex')}
-                        helperText=""
-                    >
-                        {currencies.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField>
                     <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={3}>
                         <Button
                             sx={{
@@ -160,6 +177,7 @@ const Inforuser = () => {
                                 }
                             }}
                             variant="contained"
+                            onClick={handleUpdateAccount}
                         >
                             Save
                         </Button>
@@ -172,6 +190,7 @@ const Inforuser = () => {
                                 }
                             }}
                             variant="text"
+                            onClick={handleCancel}
                         >
                             Cancel
                         </Button>

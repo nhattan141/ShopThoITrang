@@ -23,18 +23,17 @@ export default function useAddCart() {
     const cartItem = (userId, product, size) => {
         return {
             userId: userId,
-            productId: product.id,
-            productImg: product.image,
-            productName: product.title,
-            productPrice: product.price,
-            productSize: size,
+            productId: product._id,
+            productImg: product.Image,
+            productName: product.Name,
+            productPrice: product.Price,
             quantity: 1
         };
     };
 
     function addCart(userId, product, size) {
         for (let item in cart) {
-            if (cart[item].productId === product.id && cart[item].productSize === size) {
+            if (cart[item].productId === product._id) {
                 cart[item].quantity += 1;
                 saveCart();
                 toast.success('Da them vao gio hang thanh cong');

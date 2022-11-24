@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import './CartInfor.scss';
 
 import useAddCart from 'HOC/useAddCart';
+import useToken from 'HOC/useToken';
 
 import { Grid, Paper, Stack, styled } from '@mui/material';
+
+import { hadleAddOrderApi, hadleAddOrderDetailsApi } from 'services/orderService';
 
 const CartInfor = (props) => {
     const Item = styled(Paper)(({ theme }) => ({
@@ -18,6 +22,33 @@ const CartInfor = (props) => {
     }));
 
     const { cart, total, addQuantity, minusQuantity } = useAddCart();
+    const { tokenApi } = useToken();
+
+    if (tokenApi) {
+        var { user } = tokenApi;
+    }
+
+    const handleOrder = async () => {
+        try {
+            const day = new Date().toLocaleDateString('en-US').toString();
+            const res = await hadleAddOrderApi(user._id, day, total, 'Cho xac nhan', user.email, user.phone, user.address);
+            if (res && res.status === 200) {
+                for (let item in cart) {
+                    await hadleAddOrderDetailsApi(
+                        res.data._id,
+                        cart[item].productId,
+                        cart[item].productPrice,
+                        cart[item].quantity,
+                        cart[item].productPrice * cart[item].quantity
+                    );
+                }
+                toast.success('Dat hang thanh cong');
+            }
+        } catch (e) {
+            console.log(e);
+            toast.error('Co loi xay ra');
+        }
+    };
 
     return (
         <div className="cart-infor-container">
@@ -27,45 +58,42 @@ const CartInfor = (props) => {
                         <Item>
                             <div className="list-cart-container">
                                 <div className="items-cart">
-                                    <Stack spacing={2}>
+                                    <Stack>
                                         {cart &&
                                             cart.map((item, index) => {
                                                 return (
-                                                    <Item key={index}>
-                                                        <div className="item-cart">
-                                                            <div className="image-item">
-                                                                <img src={item.productImg} alt="item-img" />
-                                                            </div>
-                                                            <div className="infor-item">
-                                                                <div className="infor-title">{item.productName}</div>
-                                                                <div className="infor-size">
-                                                                    <div className="size-title">size:</div>
-                                                                    <div className="size-name">{item.productSize}</div>
-                                                                </div>
-                                                                <div className="infor-quantity">
-                                                                    <div className="quantity-title">quantity:</div>
-                                                                    <div className="quantity-action">
-                                                                        <button
-                                                                            onClick={() => {
-                                                                                minusQuantity(item.productId, item.productSize, 1);
-                                                                            }}
-                                                                        >
-                                                                            -
-                                                                        </button>
-                                                                        <div className="quantity">{item.quantity}</div>
-                                                                        <button
-                                                                            onClick={() => {
-                                                                                addQuantity(item.productId, item.productSize, 1);
-                                                                            }}
-                                                                        >
-                                                                            +
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="price-item">{item.productPrice * item.quantity}&nbsp;VND</div>
+                                                    <div className="item-cart" key={index}>
+                                                        <div className="image-item">
+                                                            <img src={item.productImg} alt="item-img" />
                                                         </div>
-                                                    </Item>
+                                                        <div className="infor-item">
+                                                            <div className="infor-title">{item.productName}</div>
+                                                            <div className="infor-quantity">
+                                                                <div className="quantity-title">quantity:</div>
+                                                                <div className="quantity-action">
+                                                                    <button
+                                                                        onClick={() => {
+                                                                            minusQuantity(item.productId, item.productSize, 1);
+                                                                        }}
+                                                                    >
+                                                                        -
+                                                                    </button>
+                                                                    <div className="quantity">{item.quantity}</div>
+                                                                    <button
+                                                                        onClick={() => {
+                                                                            addQuantity(item.productId, item.productSize, 1);
+                                                                        }}
+                                                                    >
+                                                                        +
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="price-item">
+                                                            {new Intl.NumberFormat().format(item.productPrice * item.quantity)}
+                                                            &nbsp;VND
+                                                        </div>
+                                                    </div>
                                                 );
                                             })}
                                     </Stack>
@@ -82,28 +110,12 @@ const CartInfor = (props) => {
                     <Grid item xs={12} md={4}>
                         <Item>
                             <div className="payment-container">
-                                <div className="payment-detail">
-                                    <Stack spacing={2} alignItems="stretch">
-                                        <Item>
-                                            <div className="payment-item">
-                                                <div className="title">Total Amount:</div>
-                                                <div className="price">{total}&nbsp;VND</div>
-                                            </div>
-                                        </Item>
-                                        <Item>
-                                            <div className="payment-item">
-                                                <div className="title">Shipping Fee:</div>
-                                                <div className="price">{total > 100 ? 50 : total === 0 ? 0 : 100}&nbsp;VND</div>
-                                            </div>
-                                        </Item>
-                                    </Stack>
-                                </div>
                                 <div className="payment-total">
                                     <div className="total-title">TOTAL</div>
-                                    <div className="total-price">{total > 100 ? total + 50 : total === 0 ? 0 : total + 100}&nbsp;VND</div>
+                                    <div className="total-price">{new Intl.NumberFormat().format(total)}&nbsp;VND</div>
                                 </div>
                                 <div className="payment-button">
-                                    <button>Pay {total > 100 ? total + 50 : total === 0 ? 0 : total + 100}&nbsp;VND</button>
+                                    <button onClick={handleOrder}>Pay&nbsp;&nbsp;{new Intl.NumberFormat().format(total)}&nbsp;VND</button>
                                 </div>
                             </div>
                         </Item>

@@ -86,11 +86,11 @@ const List = (props) => {
                                             <Grid item xs={12} sm={6} md={3} key={index}>
                                                 <Item>
                                                     <CardProduct
-                                                        id={item.id}
-                                                        title={item.title}
-                                                        category={item.category}
-                                                        price={item.price}
-                                                        image={item.image}
+                                                        id={item._id}
+                                                        title={item.Name}
+                                                        category={item.CategoryId}
+                                                        price={item.Price}
+                                                        image={item.Image}
                                                         product={item}
                                                         setLength={setLength}
                                                     />

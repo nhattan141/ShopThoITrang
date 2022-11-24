@@ -1,5 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+
+import { handleGetOrderbyAcountIdApi, handleGetOrderDetailsByOrderIdApi } from 'services/orderService';
+import { handleGetSingleProduct } from 'services/productService';
+
+import useToken from 'HOC/useToken';
 
 import {
     Grid,
@@ -18,32 +24,79 @@ import {
 } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
-//import img demo
-import img1 from 'assets/images/hot/image-category-1.png';
-import img2 from 'assets/images/hot/image-category-2.png';
+import { forEach } from 'lodash';
 
 const Order = () => {
-    function createData(orderId, otherDate, otherTotal, otherStatus) {
+    const [orderArr, setOrderArr] = React.useState([]);
+    const [details, setDetails] = React.useState([]);
+
+    const { tokenApi } = useToken();
+
+    if (tokenApi) {
+        var { user } = tokenApi;
+    }
+
+    const handleGetAllOrderByAccountId = async () => {
+        try {
+            const res = await handleGetOrderbyAcountIdApi(user._id);
+            if (res && res.status === 200) {
+                setOrderArr(res.data);
+                // const details = await handleGetOrderDetailsByOrderIdApi(orderArr._id);
+                // detailsCopy.push(details.data);
+                // setDetails(detailsCopy);
+            }
+        } catch (e) {
+            console.log(e);
+            toast.error('Co loi xay ra, khong lay duoc cac don hang');
+        }
+    };
+
+    const handleGetDetailByOrdertId = async () => {
+        let copy = [];
+        orderArr.forEach(async () => {
+            const details = await handleGetOrderDetailsByOrderIdApi(orderArr._id);
+            copy = [...details.data];
+        });
+        setDetails(copy);
+    };
+
+    React.useEffect(() => {
+        handleGetAllOrderByAccountId();
+        handleGetDetailByOrdertId();
+    }, []);
+
+    console.log(details);
+
+    const rows = [];
+
+    orderArr.map(async (item) => {
+        const detail = await handleGetOrderDetailsByOrderIdApi(item._id);
+        // setDetails(detail.data);
+    });
+
+    orderArr.map(async (item) => {
+        const rowItem = createData(item._id, item.Date, item.Total, item.Status, details);
+        rows.unshift(rowItem);
+    });
+
+    function createDetailItem(productName, productImg, amount, productPrice) {
+        return { productName, productImg, amount, productPrice };
+    }
+
+    function createData(orderId, otherDate, otherTotal, otherStatus, details) {
+        const detail = [];
+        details.map(async (item) => {
+            const product = await handleGetSingleProduct(item.ProductId);
+            const detailItem = createDetailItem(product.data.Name, product.data.Image, product.data.Quantity, product.data.Price);
+            detail.push(detailItem);
+        });
+
         return {
             orderId,
             otherDate,
             otherTotal,
             otherStatus,
-            detail: [
-                {
-                    productName: '11091700',
-                    productImg: img1,
-                    amount: 3,
-                    productPrice: 800
-                },
-                {
-                    productName: 'Anonymous',
-                    productImg: img2,
-                    amount: 1,
-                    productPrice: 600
-                }
-            ]
+            detail
         };
     }
 
@@ -84,17 +137,17 @@ const Order = () => {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {row.detail.map((historyRow, index) => (
+                                        {row.detail.map((detailRow, index) => (
                                             <TableRow key={index}>
                                                 <TableCell component="th" scope="row">
-                                                    {historyRow.productName}
+                                                    {detailRow.productName}
                                                 </TableCell>
                                                 <TableCell>
-                                                    <Avatar alt="Product Image" variant="rounded" src={historyRow.productImg} />
-                                                    {/* {historyRow.productImg} */}
+                                                    <Avatar alt="Product Image" variant="rounded" src={detailRow.productImg} />
+                                                    {/* {detailRow.productImg} */}
                                                 </TableCell>
-                                                <TableCell align="right">{historyRow.amount}</TableCell>
-                                                <TableCell align="right">{historyRow.amount * historyRow.productPrice}</TableCell>
+                                                <TableCell align="right">{detailRow.amount}</TableCell>
+                                                <TableCell align="right">{detailRow.amount * detailRow.productPrice}</TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>
@@ -111,7 +164,7 @@ const Order = () => {
         row: PropTypes.shape({
             otherDate: PropTypes.string.isRequired,
             otherStatus: PropTypes.string.isRequired,
-            otherTotal: PropTypes.string.isRequired,
+            otherTotal: PropTypes.number.isRequired,
             detail: PropTypes.arrayOf(
                 PropTypes.shape({
                     amount: PropTypes.number.isRequired,
@@ -122,14 +175,6 @@ const Order = () => {
             ).isRequired
         }).isRequired
     };
-
-    const rows = [
-        createData('OID13112022', '13/11/2022', '60000', 'Received'),
-        createData('OID12112022', '12/11/2022', '90000', 'Delivering'),
-        createData('OID11112022', '11/11/2022', '160000', 'Confirming'),
-        createData('OID10112022', '10/11/2022', '30000', 'Delivering'),
-        createData('OID09112022', '09/11/2022', '160000', 'Canceled')
-    ];
 
     return (
         <Grid
