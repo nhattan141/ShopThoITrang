@@ -31,8 +31,12 @@ const Login = () => {
             const res = await handleLoginApi(username, password);
             if (res && res.status === 200 && res.data.errCode === 0) {
                 toast.success('Login thanh cong');
+                if (res.data.user.role == '0') {
+                    navigate('/');
+                } else if (res.data.user.role == '1') {
+                    navigate('/dashboard/default');
+                }
                 setToken(res.data);
-                navigate('/');
             } else {
                 setErrors(res.data.errMessage);
             }
