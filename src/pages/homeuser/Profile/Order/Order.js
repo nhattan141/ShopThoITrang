@@ -32,7 +32,7 @@ const Order = () => {
         try {
             const res = await handleGetOrderbyAcountIdApi(user._id);
             if (res && res.status === 200) {
-                setOrderArr(res.data);
+                setOrderArr(res.data.reverse());
             }
         } catch (e) {
             console.log(e);
@@ -66,8 +66,6 @@ const Order = () => {
         setId(orderId);
     };
 
-    let reverseArr = orderArr.reverse();
-
     return (
         <Grid
             container
@@ -90,7 +88,7 @@ const Order = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {reverseArr.map((row, index) => (
+                        {orderArr.map((row, index) => (
                             <TableRow
                                 hover
                                 key={index}

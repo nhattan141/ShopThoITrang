@@ -43,7 +43,7 @@ const ComponentOrders = () => {
         try {
             const res = await handleGetAllOrderApi();
             if (res && res.status === 200) {
-                setOrderArr(res.data);
+                setOrderArr(res.data.reverse());
             }
         } catch (e) {
             console.log(e);
@@ -60,8 +60,6 @@ const ComponentOrders = () => {
         setId(orderId);
     };
 
-    let reverseArr = orderArr.reverse();
-
     return (
         <ComponentSkeleton>
             <TableContainer component={Paper}>
@@ -75,7 +73,7 @@ const ComponentOrders = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {reverseArr.map((row, index) => (
+                        {orderArr.map((row, index) => (
                             <TableRow
                                 hover
                                 key={index}
