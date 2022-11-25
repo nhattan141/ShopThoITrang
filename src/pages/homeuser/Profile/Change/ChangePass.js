@@ -46,14 +46,14 @@ const ChangePass = () => {
             if (pass.newPass === pass.confirmPass) {
                 const res = await handleUpdatePassApi(user._id, pass.newPass);
                 if (res && res.status === 200) {
-                    toast.success('Update thanh cong');
+                    toast.success('Cập nhật thành công');
                 }
             } else {
-                toast.error('Confirm password is wrong!');
+                toast.error('mật khẩu xác thực sai!');
             }
         } catch (e) {
             console.log(e);
-            toast.error('Co loi xay ra');
+            toast.error('Có lỗi xảy ra');
         }
     };
 

@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const beUrl = 'http://localhost:5000';
 
+const handleGetAllOrderApi = (id) => {
+    return axios.get(`${beUrl}/orders/getOrderFilters`);
+};
+
 const handleGetOrderbyAcountIdApi = (id) => {
     return axios.get(`${beUrl}/orders/getOrderByAccountId/${id}`);
 };
@@ -22,4 +26,16 @@ const hadleAddOrderDetailsApi = (OrderId, ProductId, UnitPrice, Quantity, Total)
     return axios.post(`${beUrl}/orderDetails/addOrderDetails`, { OrderId, ProductId, UnitPrice, Quantity, Total });
 };
 
-export { handleGetOrderbyAcountIdApi, handleGetOrderbyIdApi, handleGetOrderDetailsByOrderIdApi, hadleAddOrderApi, hadleAddOrderDetailsApi };
+const hadleUpdateOrderApi = (id, Status) => {
+    return axios.put(`${beUrl}/orders/updateOrder/${id}`, { Status });
+};
+
+export {
+    handleGetOrderbyAcountIdApi,
+    handleGetOrderbyIdApi,
+    handleGetOrderDetailsByOrderIdApi,
+    hadleAddOrderApi,
+    hadleAddOrderDetailsApi,
+    handleGetAllOrderApi,
+    hadleUpdateOrderApi
+};

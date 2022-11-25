@@ -51,11 +51,11 @@ const Inforuser = () => {
         try {
             const res = await handleUpdateAccountApi(user._id, information.name, information.address, information.phone);
             if (res && res.status === 200) {
-                toast.success('Update thanh cong, hau dang nhap lai');
+                toast.success('Cập nhật thành công, hãy đăng nhập lại để kiểm tra');
             }
         } catch (e) {
             console.log(e);
-            toast.error('Co loi xay ra');
+            toast.error('Có lỗi xảy ra');
         }
     };
 
