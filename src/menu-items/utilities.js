@@ -33,53 +33,24 @@ const utilities = {
     children: [
         {
             id: 'util-products',
-            title: 'Products',
+            title: 'Sản phẩm',
             type: 'item',
             url: '/products',
             icon: icons.SkinOutlined
         },
         {
             id: 'util-orders',
-            title: 'Orders',
+            title: 'Đơn hàng',
             type: 'item',
             url: '/orders',
             icon: icons.ShoppingOutlined
         },
         {
             id: 'util-categories',
-            title: 'Categories',
+            title: 'Danh mục',
             type: 'item',
             url: '/categories',
             icon: icons.ProfileOutlined
-        },
-        {
-            id: 'util-color',
-            title: 'Color',
-            type: 'item',
-            url: '/color',
-            icon: icons.BgColorsOutlined
-        },
-        {
-            id: 'util-shadow',
-            title: 'Shadow',
-            type: 'item',
-            url: '/shadow',
-            icon: icons.BarcodeOutlined
-        },
-        {
-            id: 'ant-icons',
-            title: 'Ant Icons',
-            type: 'item',
-            url: '/icons/ant',
-            icon: icons.AntDesignOutlined,
-            breadcrumbs: false
-        },
-        {
-            id: 'util-ManagementAdmin',
-            title: 'ManagementAdmin',
-            type: 'item',
-            url: '/ManagementAdmin',
-            icon: icons.UserOutlined
         }
     ]
 };

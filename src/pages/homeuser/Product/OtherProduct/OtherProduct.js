@@ -6,11 +6,11 @@ import SliderProducts from 'pages/homeuser/MainHome/SliderProducts/SliderProduct
 
 const OtherProduct = (props) => {
     return (
-        <div className="others-container">
-            <div className="others-content">
-                <SliderProducts title="Sản phẩm khác" class="slider-top-none" />
-            </div>
-        </div>
+        // <div className="others-container">
+        //     <div className="others-content">
+        <SliderProducts title="Sản phẩm khác" class="slider-top-none" />
+        //     </div>
+        // </div>
     );
 };
 

@@ -24,50 +24,50 @@ const Navigation = () => {
                     <Grid container spacing={2}>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <NavLink to="/jew" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Jewelry & Accessories
+                                <NavLink to="/clothing" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
+                                    Quần áo
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
-                                <NavLink to="/clothing" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Clothing & Shoes
+                                <NavLink to="/jew" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
+                                    Trang sức
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
                                 <NavLink to="/living" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Home & Living
+                                    Đồ ở nhà
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
                                 <NavLink to="/wedding" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Wedding & Party
+                                    Tiệc cưới
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
                                 <NavLink to="/toys" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Toys & Entertainment
+                                    Sự kiện
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
                                 <NavLink to="/art" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Art & Collectibles
+                                    Bộ sưu tập
                                 </NavLink>
                             </Item>
                         </Grid>
                         <Grid item xs={6} sm={3} md>
                             <Item>
                                 <NavLink to="/craft" className={(navData) => (navData.isActive ? 'link_active' : 'link')}>
-                                    Craft Supplies & Tools
+                                    Khăn quàng cổ
                                 </NavLink>
                             </Item>
                         </Grid>

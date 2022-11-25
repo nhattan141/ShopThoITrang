@@ -47,8 +47,8 @@ const Footer = () => {
                                         <img src={logo} alt="logo" />
                                     </div>
                                     <div className="footer-title">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                                        et dolore magna aliqua
+                                        Coral shop, chuyên cung cấp các sản phẩm trang sức chính hãng từ nhiều thương hiệu khác nhau. Đảm
+                                        bảo uy tín cho khách hàng.
                                     </div>
                                     <div className="footer-social">
                                         <FacebookOutlinedIcon />
@@ -62,13 +62,13 @@ const Footer = () => {
                         <Grid item xs={6} md={2}>
                             <Item>
                                 <div className="footer-menu">
-                                    <div className="menu-title">CATALOG</div>
+                                    <div className="menu-title">Danh Mục</div>
                                     <div className="menu-list">
-                                        <div className="menu-item">Necklaces</div>
-                                        <div className="menu-item">Hoodies</div>
-                                        <div className="menu-item">Jewelry Box</div>
-                                        <div className="menu-item">T-Shirt</div>
-                                        <div className="menu-item">Jacket</div>
+                                        <div className="menu-item">Dây Chuyền</div>
+                                        <div className="menu-item">Áo Hoodies</div>
+                                        <div className="menu-item">Trang Sức</div>
+                                        <div className="menu-item">Áo T-Shirt</div>
+                                        <div className="menu-item">Áo Khoác</div>
                                     </div>
                                 </div>
                             </Item>
@@ -76,13 +76,13 @@ const Footer = () => {
                         <Grid item xs={6} md={3}>
                             <Item>
                                 <div className="footer-menu">
-                                    <div className="menu-title">ABOUT US</div>
+                                    <div className="menu-title">Giới Thiệu</div>
                                     <div className="menu-list">
-                                        <div className="menu-item">Our Producers</div>
-                                        <div className="menu-item">Sitemap</div>
+                                        <div className="menu-item">Sản Phẩm Của Chúng Tôi</div>
+                                        <div className="menu-item">Địa Chỉ</div>
                                         <div className="menu-item">FAQ</div>
-                                        <div className="menu-item">About Us</div>
-                                        <div className="menu-item">Terms & Conditions</div>
+                                        <div className="menu-item">Về Chúng Tôi</div>
+                                        <div className="menu-item">Chính Sách</div>
                                     </div>
                                 </div>
                             </Item>
@@ -90,13 +90,13 @@ const Footer = () => {
                         <Grid item xs={6} md={3}>
                             <Item>
                                 <div className="footer-menu">
-                                    <div className="menu-title">CUSTOMER SERVICES</div>
+                                    <div className="menu-title">Chăm Sóc Khách Hàng</div>
                                     <div className="menu-list">
-                                        <div className="menu-item">Contact Us</div>
-                                        <div className="menu-item">Track Your Order</div>
-                                        <div className="menu-item">Product Care & Repair</div>
-                                        <div className="menu-item">Book an Appointment</div>
-                                        <div className="menu-item">Shipping & Returns</div>
+                                        <div className="menu-item">Liên Hệ Chúng Tôi</div>
+                                        <div className="menu-item">Theo Dõi Đơn Hàng Của Bạn</div>
+                                        <div className="menu-item">Vấn Đề Sản Phẩm</div>
+                                        <div className="menu-item">Đặt Lịch</div>
+                                        <div className="menu-item">Vận Chuyển</div>
                                     </div>
                                 </div>
                             </Item>

@@ -56,8 +56,8 @@ const CardProduct = (props) => {
             </div>
             <div className="title-product">{props.title}</div>
             <div className="bottom-product">
-                <div className="left-bot">{props.category}</div>
-                <div className="right-bot">{props.price}</div>
+                <div className="left-bot">{props.id}</div>
+                <div className="right-bot">{new Intl.NumberFormat().format(props.price)}&nbsp;VNĐ</div>
             </div>
         </div>
     );

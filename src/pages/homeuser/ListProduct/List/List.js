@@ -77,7 +77,7 @@ const List = (props) => {
             <div className="list-content">
                 <div className="products">
                     <div className="tabcontent tab-active" id="all">
-                        <div className="list-title">{props.category}</div>
+                        {/* <div className="list-title">{props.category}</div> */}
                         <div className="list-products">
                             <Box sx={{ flexGrow: 1 }}>
                                 <Grid container spacing={2}>
