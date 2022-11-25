@@ -109,7 +109,7 @@ const Footer = () => {
                         <img src={payment} alt="payment" />
                     </div>
                     <div className="scroll">
-                        <div className="scroll-title">Scroll to top</div>
+                        <div className="scroll-title">Lên đầu trang</div>
                         <ArrowUpwardIcon className="scroll-arrow" onClick={scrollToTop} fontSize="small" />
                     </div>
                 </div>

@@ -36,14 +36,14 @@ export default function useAddCart() {
             if (cart[item].productId === product._id) {
                 cart[item].quantity += 1;
                 saveCart();
-                toast.success('Da them vao gio hang thanh cong');
+                toast.success('Đã thêm vào giỏ hàng thành công');
                 return;
             }
         }
         const newItem = cartItem(userId, product, size);
         setCart((cart) => cart.splice(0, 0, newItem));
         saveCart();
-        toast.success('Da them vao gio hang thanh cong');
+        toast.success('Đã thêm vào giỏ hàng thành công');
     }
 
     //Tinh tong tien khi nguoi dung them hang vao gio hang tu localStorage
@@ -87,7 +87,7 @@ export default function useAddCart() {
                 cart[item].quantity -= count;
                 if (cart[item].quantity === 0) {
                     cart.splice(item, 1);
-                    toast.success('Da xoa khoi gio hang thanh cong');
+                    toast.success('Đã xóa khỏi giỏ hàng thành công');
                 }
                 setTotalCart();
                 setCart([...cart]);

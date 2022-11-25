@@ -11,7 +11,7 @@ const HotCategory = () => {
     return (
         <div className="hot-contaiter">
             <div className="hot-content">
-                <div className="hot-title">Explore new and popular styles</div>
+                <div className="hot-title">KHÁM PHÁ PHONG CÁCH NỔI TIẾNG</div>
                 <div className="right-content">
                     <div className="hot-img-left">
                         <img src={hot1} alt="hotcategory" />

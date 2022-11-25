@@ -18,7 +18,7 @@ const HomeLayout = () => {
             <HotCategory />
             <GridProducts />
             <BrandBanner />
-            <SliderProducts title="Best Sellers" class="slider-top" />
+            <SliderProducts title="Bán chạy nhất" class="slider-top" />
             <NewsLetter />
         </>
     );

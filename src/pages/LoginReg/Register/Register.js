@@ -31,13 +31,13 @@ const Register = () => {
             const res = await handleSignupApi(emailSignup, passReg, confirm);
             if (res && res.data.errCode === 0) {
                 setErrors();
-                toast.success('Dang ky thanh cong, ban co th dang nhap roi');
+                toast.success('Đăng ký thành công, bạn có thể đăng nhập rồi');
             } else {
                 setErrors(res.data.errMessage);
             }
         } catch (e) {
             console.log(e);
-            toast.error('Co loi xay ra');
+            toast.error('Có lỗi xảy ra');
         }
     };
 
@@ -55,23 +55,23 @@ const Register = () => {
                     <div className="login-quare" style={{ ['--i']: 4 }}></div>
                     <div className="login-container">
                         <div className="login-form">
-                            <h2>Register Form</h2>
+                            <h2>Đăng ký</h2>
                             <form onSubmit={handleSignup}>
                                 <div className="inputBox">
                                     <input type="text" onChange={handleOnChangeMailReg} placeholder="Email" />
                                 </div>
                                 <div className="inputBox">
-                                    <input type="password" onChange={handleOnChangePassReg} placeholder="Password" />
+                                    <input type="password" onChange={handleOnChangePassReg} placeholder="Mật khẩu" />
                                 </div>
                                 <div className="inputBox">
-                                    <input type="password" onChange={handleOnChangeConfirm} placeholder="Password" />
+                                    <input type="password" onChange={handleOnChangeConfirm} placeholder="Xác thực mật khẩu" />
                                 </div>
                                 <div className="inputBox error">{errors}</div>
                                 <div className="inputBox">
-                                    <input type="submit" value="Sign up" />
+                                    <input type="submit" value="Đăng ký" />
                                 </div>
                                 <p className="signup">
-                                    Had an account ? <Link to="/login">Login</Link>
+                                    Đã có tài khoản ? <Link to="/login">Đăng nhập</Link>
                                 </p>
                             </form>
                         </div>

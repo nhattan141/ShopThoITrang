@@ -36,7 +36,7 @@ const Order = () => {
             }
         } catch (e) {
             console.log(e);
-            toast.error('Co loi xay ra, khong lay duoc cac don hang');
+            toast.error('Có lỗi xảy ra');
         }
     };
 
@@ -83,10 +83,10 @@ const Order = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>OrderId</TableCell>
-                            <TableCell align="right">Date</TableCell>
-                            <TableCell align="right">Total</TableCell>
-                            <TableCell align="right">Status</TableCell>
+                            <TableCell>Mã đơn hàng</TableCell>
+                            <TableCell align="right">Ngày đặt</TableCell>
+                            <TableCell align="right">Tổng đơn</TableCell>
+                            <TableCell align="right">Trạng thái</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -101,7 +101,7 @@ const Order = () => {
                                     {row._id}
                                 </TableCell>
                                 <TableCell align="right">{row.Date}</TableCell>
-                                <TableCell align="right">{row.Total}</TableCell>
+                                <TableCell align="right">{new Intl.NumberFormat().format(row.Total)}&nbsp;VNĐ</TableCell>
                                 <TableCell align="right">{row.Status}</TableCell>
                             </TableRow>
                         ))}

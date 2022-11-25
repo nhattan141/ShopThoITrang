@@ -29,24 +29,30 @@ const CartInfor = (props) => {
     }
 
     const handleOrder = async () => {
-        try {
-            const day = new Date().toLocaleDateString('en-US').toString();
-            const res = await hadleAddOrderApi(user._id, day, total, 'Cho xac nhan', user.email, user.phone, user.address);
-            if (res && res.status === 200) {
-                for (let item in cart) {
-                    await hadleAddOrderDetailsApi(
-                        res.data._id,
-                        cart[item].productId,
-                        cart[item].productPrice,
-                        cart[item].quantity,
-                        cart[item].productPrice * cart[item].quantity
-                    );
+        if (!user) {
+            toast.error('Bạn cần đăng nhập trước');
+        } else if (total === 0) {
+            toast.info('Không có sản phẩm nào trong giỏ hàng, bạn cần thêm sản phẩm vào giỏ hàng');
+        } else {
+            try {
+                const day = new Date().toLocaleDateString('en-US').toString();
+                const res = await hadleAddOrderApi(user._id, day, total, 'Chờ xác nhận', user.email, user.phone, user.address);
+                if (res && res.status === 200) {
+                    for (let item in cart) {
+                        await hadleAddOrderDetailsApi(
+                            res.data._id,
+                            cart[item].productId,
+                            cart[item].productPrice,
+                            cart[item].quantity,
+                            cart[item].productPrice * cart[item].quantity
+                        );
+                    }
+                    toast.success('Dat hang thanh cong');
                 }
-                toast.success('Dat hang thanh cong');
+            } catch (e) {
+                console.log(e);
+                toast.error('Co loi xay ra');
             }
-        } catch (e) {
-            console.log(e);
-            toast.error('Co loi xay ra');
         }
     };
 
@@ -69,7 +75,7 @@ const CartInfor = (props) => {
                                                         <div className="infor-item">
                                                             <div className="infor-title">{item.productName}</div>
                                                             <div className="infor-quantity">
-                                                                <div className="quantity-title">quantity:</div>
+                                                                <div className="quantity-title">Sô lượng:</div>
                                                                 <div className="quantity-action">
                                                                     <button
                                                                         onClick={() => {
@@ -91,7 +97,7 @@ const CartInfor = (props) => {
                                                         </div>
                                                         <div className="price-item">
                                                             {new Intl.NumberFormat().format(item.productPrice * item.quantity)}
-                                                            &nbsp;VND
+                                                            &nbsp;VNĐ
                                                         </div>
                                                     </div>
                                                 );
@@ -99,9 +105,9 @@ const CartInfor = (props) => {
                                     </Stack>
                                 </div>
                                 <div className="cart-empty">
-                                    Carts feel empty?
+                                    Giỏ hàng đang trống?
                                     <Link to="/jew" className="empty-link">
-                                        Shop more
+                                        Mua ngay
                                     </Link>
                                 </div>
                             </div>
@@ -111,11 +117,13 @@ const CartInfor = (props) => {
                         <Item>
                             <div className="payment-container">
                                 <div className="payment-total">
-                                    <div className="total-title">TOTAL</div>
-                                    <div className="total-price">{new Intl.NumberFormat().format(total)}&nbsp;VND</div>
+                                    <div className="total-title">Tổng</div>
+                                    <div className="total-price">{new Intl.NumberFormat().format(total)}&nbsp;VNĐ</div>
                                 </div>
                                 <div className="payment-button">
-                                    <button onClick={handleOrder}>Pay&nbsp;&nbsp;{new Intl.NumberFormat().format(total)}&nbsp;VND</button>
+                                    <button onClick={handleOrder}>
+                                        Đặt hàng&nbsp;&nbsp;{new Intl.NumberFormat().format(total)}&nbsp;VNĐ
+                                    </button>
                                 </div>
                             </div>
                         </Item>

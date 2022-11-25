@@ -115,7 +115,7 @@ const Inforuser = () => {
                             startIcon={<PhotoCamera />}
                             component="label"
                         >
-                            UPLOAD
+                            Tải hình
                             <input hidden accept="image/*" type="file" />
                         </Button>
                     </Stack>
@@ -145,21 +145,21 @@ const Inforuser = () => {
                         color="secondary"
                     />
                     <TextField
-                        label="User name"
+                        label="Tên"
                         value={information.name}
                         onChange={handleOnchangeInput('name')}
                         helperText=""
                         color="secondary"
                     />
                     <TextField
-                        label="Address"
+                        label="Địa chỉ"
                         value={information.address}
                         onChange={handleOnchangeInput('address')}
                         helperText=""
                         color="secondary"
                     />
                     <TextField
-                        label="Phone"
+                        label="Số điện thoại"
                         value={information.phone}
                         onChange={handleOnchangeInput('phone')}
                         helperText=""
@@ -179,7 +179,7 @@ const Inforuser = () => {
                             variant="contained"
                             onClick={handleUpdateAccount}
                         >
-                            Save
+                            Lưu
                         </Button>
                         <Button
                             sx={{
@@ -192,7 +192,7 @@ const Inforuser = () => {
                             variant="text"
                             onClick={handleCancel}
                         >
-                            Cancel
+                            Hủy
                         </Button>
                     </Stack>
                 </Box>

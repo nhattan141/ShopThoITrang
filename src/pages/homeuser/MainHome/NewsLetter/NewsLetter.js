@@ -29,7 +29,7 @@ const NewsLetter = () => {
         <div className="news-container">
             <div className="news-content">
                 <div className="news-insta">
-                    <div className="insta-title">Follow Products And Discounts On Instagram</div>
+                    <div className="insta-title">Theo dõi các sản phẩm trên Instagram</div>
                     <div className="insta-group">
                         <Grid container spacing={2}>
                             <Grid item xs={6} sm={4} md={2}>
@@ -96,13 +96,13 @@ const NewsLetter = () => {
                     </div>
                 </div>
                 <div className="news-letter">
-                    <div className="letter-title">Or Subscribe To The Newsletter</div>
+                    <div className="letter-title">Hoặc gửi tin nhắn</div>
                     <div className="letter-form">
                         <div className="form-input">
                             <input type="text" placeholder="Email Adress..." />
                         </div>
                         <div className="form-btn">
-                            <button>SUBMIT</button>
+                            <button>Gửi</button>
                         </div>
                     </div>
                 </div>

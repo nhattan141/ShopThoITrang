@@ -53,11 +53,11 @@ const GridProducts = () => {
     return (
         <div className="grid-products-container">
             <div className="grid-products-content">
-                <div className="grid-products-title">New Products</div>
+                <div className="grid-products-title">Sản phẩm mới</div>
                 <div className="grid-products-top">
                     <div className="tabs">
                         <button className="tablinks active" onClick={(event) => openTab(event, 'all')}>
-                            All Products
+                            Tất cả
                         </button>
                         <button className="tablinks" onClick={(event) => openTab(event, 'tshirt')}>
                             T-Shirt
@@ -71,7 +71,7 @@ const GridProducts = () => {
                     </div>
                     <div className="filter">
                         <FilterAltOutlinedIcon />
-                        <p>Filter</p>
+                        <p>Lọc</p>
                     </div>
                 </div>
                 <div className="products">

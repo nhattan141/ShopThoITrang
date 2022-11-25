@@ -8,7 +8,7 @@ const OtherProduct = (props) => {
     return (
         <div className="others-container">
             <div className="others-content">
-                <SliderProducts title="Others" class="slider-top-none" />
+                <SliderProducts title="Sản phẩm khác" class="slider-top-none" />
             </div>
         </div>
     );

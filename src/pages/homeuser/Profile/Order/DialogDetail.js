@@ -73,17 +73,17 @@ const DialogDetail = (props) => {
 
     return (
         <Dialog open={props.open} onClose={props.toggleDialog}>
-            <DialogTitle>Details&nbsp;{orderID}</DialogTitle>
+            <DialogTitle>Chi tiết đơn hàng &nbsp;{orderID}</DialogTitle>
             <DialogContent>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Name</TableCell>
-                                <TableCell align="right">Image</TableCell>
-                                <TableCell align="right">Price</TableCell>
-                                <TableCell align="right">Quantity</TableCell>
-                                <TableCell align="right">Total</TableCell>
+                                <TableCell>Tên sản phẩm</TableCell>
+                                <TableCell align="right">Hình ảnh</TableCell>
+                                <TableCell align="right">Đơn giá</TableCell>
+                                <TableCell align="right">Số lượng</TableCell>
+                                <TableCell align="right">Tổng</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

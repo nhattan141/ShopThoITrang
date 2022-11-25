@@ -75,7 +75,7 @@ const SliderProducts = (props) => {
                 <div className={props.class}>
                     <div className="tabs">
                         <button className="slider-tablinks active" onClick={(event) => openTab(event, 'slider-all')}>
-                            All Products
+                            Tất cả
                         </button>
                         <button className="slider-tablinks" onClick={(event) => openTab(event, 'slider-tshirt')}>
                             T-Shirt
@@ -88,7 +88,7 @@ const SliderProducts = (props) => {
                         </button>
                     </div>
                     <div className="show">
-                        <p>Show All</p>
+                        <p>Xem hết</p>
                     </div>
                 </div>
                 <div className="products">

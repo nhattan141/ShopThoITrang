@@ -79,7 +79,7 @@ const Profile = () => {
                                                 <span className="icon-nav">
                                                     <AccountCircleOutlinedIcon fontSize="large" />
                                                 </span>
-                                                <span className="icon-text">Information</span>
+                                                <span className="icon-text">Thông tin cá nhân</span>
                                             </div>
                                         </button>
                                         <button
@@ -91,7 +91,7 @@ const Profile = () => {
                                                 <span className="icon-nav">
                                                     <ChangeCircleOutlinedIcon fontSize="large" />
                                                 </span>
-                                                <span className="icon-text">Change Password</span>
+                                                <span className="icon-text">Đổi mật khẩu</span>
                                             </div>
                                         </button>
                                         <button
@@ -103,7 +103,7 @@ const Profile = () => {
                                                 <span className="icon-nav">
                                                     <ShoppingCartOutlinedIcon fontSize="large" />
                                                 </span>
-                                                <span className="icon-text">Order</span>
+                                                <span className="icon-text">Đơn hàng</span>
                                             </div>
                                         </button>
                                         <button
@@ -115,7 +115,7 @@ const Profile = () => {
                                                 <span className="icon-nav">
                                                     <LogoutIcon fontSize="large" />
                                                 </span>
-                                                <span className="icon-text">Logout</span>
+                                                <span className="icon-text">Đăng xuất</span>
                                             </div>
                                         </button>
                                     </ul>

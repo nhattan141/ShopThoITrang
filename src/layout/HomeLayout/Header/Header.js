@@ -66,7 +66,7 @@ const Header = () => {
                         <div className="account">
                             {!token ? <PersonOutlineOutlinedIcon /> : <Avatar alt="Remy Sharp" src={user.avatar} />}
                             <Link to={!token ? '/login' : '/profile'}>
-                                <p>{!token ? 'Account' : user.name}</p>
+                                <p>{!token ? 'Tài khoản' : user.name}</p>
                             </Link>
                         </div>
                         <div className="shopping">
@@ -74,7 +74,7 @@ const Header = () => {
                                 <LocalMallOutlinedIcon />
                             </Badge>
                             <Link to="/cart">
-                                <p>Shopping</p>
+                                <p>Giỏ hàng</p>
                             </Link>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ const Login = () => {
             e.preventDefault();
             const res = await handleLoginApi(username, password);
             if (res && res.status === 200 && res.data.errCode === 0) {
-                toast.success('Login thanh cong');
+                toast.success('Đăng nhập thành công');
                 if (res.data.user.role == '0') {
                     navigate('/');
                 } else if (res.data.user.role == '1') {
@@ -42,7 +42,7 @@ const Login = () => {
             }
         } catch (e) {
             console.log(e);
-            toast.error('Co loi xay ra');
+            toast.error('Có lỗi xảy ra');
         }
     };
 
@@ -60,20 +60,20 @@ const Login = () => {
                     <div className="login-quare" style={{ ['--i']: 4 }}></div>
                     <div className="login-container">
                         <div className="login-form">
-                            <h2>Login Form</h2>
+                            <h2>Đăng nhập</h2>
                             <form onSubmit={handleLogin}>
                                 <div className="inputBox">
                                     <input type="text" onChange={handleOnChangeUserName} placeholder="Email" />
                                 </div>
                                 <div className="inputBox">
-                                    <input type="password" onChange={handleOnChangePassword} placeholder="Password" />
+                                    <input type="password" onChange={handleOnChangePassword} placeholder="Mật khẩu" />
                                 </div>
                                 <div className="inputBox error">{errors}</div>
                                 <div className="inputBox">
-                                    <input type="submit" value="Login" />
+                                    <input type="submit" value="Đăng nhập" />
                                 </div>
                                 <p className="signup">
-                                    Don't have an account ? <Link to="/register">Sign up</Link>
+                                    Chưa có tài khoản ? <Link to="/register">Đăng ký</Link>
                                 </p>
                             </form>
                         </div>

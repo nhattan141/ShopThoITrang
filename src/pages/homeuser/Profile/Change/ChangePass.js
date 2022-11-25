@@ -91,7 +91,7 @@ const ChangePass = () => {
                     autoComplete="off"
                 >
                     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">New Password</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-password">Mật khẩu mới</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
                             type={pass.showPassword ? 'text' : 'password'}
@@ -113,7 +113,7 @@ const ChangePass = () => {
                         />
                     </FormControl>
                     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-password">Xác nhận mật khẩu</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-password"
                             type={pass.showPassword ? 'text' : 'password'}
@@ -148,7 +148,7 @@ const ChangePass = () => {
                             variant="contained"
                             onClick={handleUpdatePass}
                         >
-                            Save
+                            Lưu
                         </Button>
                         <Button
                             sx={{
@@ -160,7 +160,7 @@ const ChangePass = () => {
                             }}
                             variant="text"
                         >
-                            Cancel
+                            Hủy
                         </Button>
                     </Stack>
                 </Box>

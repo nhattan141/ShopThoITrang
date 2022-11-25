@@ -19,12 +19,12 @@ const TopMain = () => {
             <div className="topmain-content">
                 <div className="topmain-product">
                     <div className="topmain-left">
-                        <div className="title">Collections</div>
-                        <div className="description">You can explore and shop many different collection from various barands here</div>
+                        <div className="title">Bộ sưu tập</div>
+                        <div className="description">Bạn có thể khám phá và mua sắm các bộ sưu tập của các thương hiệu khác nhau ở đây</div>
                         <div className="button">
                             <Button variant="contained" onClick={handleNaToShop}>
                                 <LocalMallOutlinedIcon />
-                                Shop Now
+                                Mua ngay
                             </Button>
                         </div>
                     </div>

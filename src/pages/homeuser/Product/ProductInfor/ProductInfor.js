@@ -71,7 +71,7 @@ const ProductInfor = (props) => {
                                             handleAddProductToCart(1, product);
                                         }}
                                     >
-                                        Add To Cart
+                                        Thêm vào giỏ hàng
                                     </Button>
                                 </div>
                             </div>

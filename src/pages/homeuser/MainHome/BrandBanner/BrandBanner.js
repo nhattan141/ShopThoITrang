@@ -13,11 +13,11 @@ const BrandBanner = () => {
                             <img src={zara2} alt="zara2" />
                         </div>
                         <div className="banner-title">
-                            Lustrous yet understated. The new evening wear collection exclusively offered at the reopened Giorgio Armani
-                            boutique in Los Angeles.
+                            Bộ sưu tập trang phục dạ hội mới được cung cấp độc quyền tại cửa hàng Giorgio Armani đã mở cửa trở lại ở Los
+                            Angeles.
                         </div>
                         <div className="banner-button">
-                            <button>See Collection</button>
+                            <button>Xem bộ sưu tập</button>
                         </div>
                     </div>
                 </div>
