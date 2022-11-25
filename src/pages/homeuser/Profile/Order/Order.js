@@ -83,6 +83,7 @@ const Order = () => {
                         <TableRow>
                             <TableCell>Mã đơn hàng</TableCell>
                             <TableCell align="right">Ngày đặt</TableCell>
+                            <TableCell align="right">Địa chỉ</TableCell>
                             <TableCell align="right">Tổng đơn</TableCell>
                             <TableCell align="right">Trạng thái</TableCell>
                         </TableRow>
@@ -99,6 +100,7 @@ const Order = () => {
                                     {row._id}
                                 </TableCell>
                                 <TableCell align="right">{row.Date}</TableCell>
+                                <TableCell align="right">{row.Address}</TableCell>
                                 <TableCell align="right">{new Intl.NumberFormat().format(row.Total)}&nbsp;VNĐ</TableCell>
                                 <TableCell align="right">{row.Status}</TableCell>
                             </TableRow>

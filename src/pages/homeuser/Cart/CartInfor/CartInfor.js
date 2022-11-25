@@ -47,11 +47,11 @@ const CartInfor = (props) => {
                             cart[item].productPrice * cart[item].quantity
                         );
                     }
-                    toast.success('Dat hang thanh cong');
+                    toast.success('Đặt hàng thành công');
                 }
             } catch (e) {
                 console.log(e);
-                toast.error('Co loi xay ra');
+                toast.error('Có lỗi xảy ra');
             }
         }
     };
