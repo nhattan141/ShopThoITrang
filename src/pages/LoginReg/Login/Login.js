@@ -41,8 +41,13 @@ const Login = () => {
                 setErrors(res.data.errMessage);
             }
         } catch (e) {
-            console.log(e);
-            toast.error('Có lỗi xảy ra');
+            // console.log(e);
+            // toast.error('Có lỗi xảy ra');
+            if (e.response) {
+                if (e.response.data) {
+                    toast.error(e.response.data.errMessage);
+                }
+            }
         }
     };
 

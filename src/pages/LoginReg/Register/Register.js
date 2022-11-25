@@ -29,15 +29,20 @@ const Register = () => {
         try {
             e.preventDefault();
             const res = await handleSignupApi(emailSignup, passReg, confirm);
-            if (res && res.data.errCode === 0) {
+            if (res && res.status === 200 && res.data.errCode === 0) {
                 setErrors();
                 toast.success('Đăng ký thành công, bạn có thể đăng nhập rồi');
             } else {
                 setErrors(res.data.errMessage);
             }
         } catch (e) {
-            console.log(e);
-            toast.error('Có lỗi xảy ra');
+            // console.log(e);
+            // toast.error('Có lỗi xảy ra');
+            if (e.response) {
+                if (e.response.data) {
+                    toast.error(e.response.data.message);
+                }
+            }
         }
     };
 
