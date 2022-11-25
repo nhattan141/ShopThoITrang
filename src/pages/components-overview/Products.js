@@ -14,7 +14,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
@@ -81,8 +81,8 @@ const Products = () => {
 
     return (
         <ComponentSkeleton>
-            <Button sx={{ mb: '20px' }} color="primary" variant="outlined" startIcon={<PersonAddIcon />} onClick={openPopupAdd}>
-                Thêm mới tài khoản
+            <Button sx={{ mb: '20px' }} color="primary" variant="outlined" startIcon={<PostAddIcon />} onClick={openPopupAdd}>
+                Thêm mới sản phẩm
             </Button>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">

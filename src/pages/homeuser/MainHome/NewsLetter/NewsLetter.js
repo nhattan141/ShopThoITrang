@@ -99,7 +99,7 @@ const NewsLetter = () => {
                     <div className="letter-title">Hoặc gửi tin nhắn</div>
                     <div className="letter-form">
                         <div className="form-input">
-                            <input type="text" placeholder="Email Adress..." />
+                            <input type="text" placeholder="Email ..." />
                         </div>
                         <div className="form-btn">
                             <button>Gửi</button>

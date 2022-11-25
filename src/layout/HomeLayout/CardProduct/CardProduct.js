@@ -7,6 +7,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
+import Avatar from '@mui/material/Avatar';
+
 import './CardProduct.scss';
 
 const CardProduct = (props) => {
@@ -26,7 +28,7 @@ const CardProduct = (props) => {
         <div className="card-product">
             <div className="img-product">
                 <Link to={`/product/${props.id}`}>
-                    <img src={props.image} alt="card" />
+                    <Avatar sx={{ width: '100%', height: '100%' }} variant="square" alt="Product" src={props.image} />
                 </Link>
                 <div className="access-product">
                     <div className="action-product">

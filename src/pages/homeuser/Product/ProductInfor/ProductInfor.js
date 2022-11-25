@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import useAddCart from 'HOC/useAddCart';
 
-import { Grid, Paper, FormControl, MenuItem, Select, Button, styled } from '@mui/material';
+import { Grid, Paper, Avatar, Button, styled } from '@mui/material';
 
 import * as actions from 'store/actions/index';
 import productReducer, { initialStateProduct } from 'store/reducers/productReducer';
@@ -55,7 +55,8 @@ const ProductInfor = (props) => {
                     <Grid item xs={12} md={6}>
                         <Item>
                             <div className="pro-image">
-                                <img src={product.Image} alt="hello" />
+                                <Avatar sx={{ width: '100%', height: '100%' }} variant="square" alt="Product" src={product.Image} />
+                                {/* <img src={product.Image} alt="hello" /> */}
                             </div>
                         </Item>
                     </Grid>
