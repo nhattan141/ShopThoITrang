@@ -157,7 +157,7 @@ const Notification = () => {
                                                         birthday today.
                                                     </Typography>
                                                 }
-                                                secondary="2 min ago"
+                                                secondary="2 phút trước"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>
@@ -186,7 +186,7 @@ const Notification = () => {
                                                         commented your post.
                                                     </Typography>
                                                 }
-                                                secondary="5 August"
+                                                secondary="5 tháng 8"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>
@@ -209,13 +209,13 @@ const Notification = () => {
                                             <ListItemText
                                                 primary={
                                                     <Typography variant="h6">
-                                                        Your Profile is Complete &nbsp;
+                                                        Hồ sơ của bạn đã hoàn tất &nbsp;
                                                         <Typography component="span" variant="subtitle1">
                                                             60%
                                                         </Typography>{' '}
                                                     </Typography>
                                                 }
-                                                secondary="7 hours ago"
+                                                secondary="7 tiếng trước"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>

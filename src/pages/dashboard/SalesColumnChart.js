@@ -34,7 +34,7 @@ const columnChartOptions = {
     },
     yaxis: {
         title: {
-            text: '$ (thousands)'
+            text: 'VNĐ (nghìn)'
         }
     },
     fill: {
@@ -43,7 +43,7 @@ const columnChartOptions = {
     tooltip: {
         y: {
             formatter(val) {
-                return `$ ${val} thousands`;
+                return `VNĐ ${val} nghìn`;
             }
         }
     },
@@ -93,11 +93,11 @@ const SalesColumnChart = () => {
 
     const [series] = useState([
         {
-            name: 'Net Profit',
+            name: 'Lợi nhuận',
             data: [180, 90, 135, 114, 120, 145]
         },
         {
-            name: 'Revenue',
+            name: 'Doanh thu',
             data: [120, 45, 78, 150, 168, 99]
         }
     ]);

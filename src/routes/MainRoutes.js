@@ -17,7 +17,7 @@ const Shadow = Loadable(lazy(() => import('pages/components-overview/Shadow')));
 const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons')));
 const Products = Loadable(lazy(() => import('pages/components-overview/Products')));
 const Orders = Loadable(lazy(() => import('pages/components-overview/Orders')));
-const Categories = Loadable(lazy(() => import('pages/components-overview/Categories')));
+const Account = Loadable(lazy(() => import('pages/components-overview/Account')));
 // const ManagementAdmin = Loadable(lazy(() => import('pages/components-overview/ManagementAdmin')));
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -68,8 +68,8 @@ const MainRoutes = {
             element: <Orders />
         },
         {
-            path: 'categories',
-            element: <Categories />
+            path: 'account',
+            element: <Account />
         }
         // {
         //     path: 'ManagementAdmin',

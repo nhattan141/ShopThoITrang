@@ -7,7 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
-import DialogAccount from './DialogAccount';
+import DialogAccount from './DialogUpdateAccount';
 import { useState, useEffect, useReducer } from 'react';
 
 import * as actions from '../../store/actions/index';
@@ -48,7 +48,7 @@ const listAcount = [
     { title: '5' },
     { title: '6' },
     { title: '7' },
-  ];
+];
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
@@ -96,20 +96,20 @@ const ComponentAccounts = () => {
                 <Button variant="contained" onClick={() => toggleDialog('add')}>
                     Add new
                 </Button>
-                <Autocomplete style={{width:300}}
+                <Autocomplete style={{ width: 300 }}
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
                     options={listAcount.map((option) => option.title)}
                     renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search input"
-                        InputProps={{
-                        ...params.InputProps,
-                        type: 'search',
-                        }}
-                    />
+                        <TextField
+                            {...params}
+                            label="Search input"
+                            InputProps={{
+                                ...params.InputProps,
+                                type: 'search',
+                            }}
+                        />
                     )}
                 />
             </Stack>

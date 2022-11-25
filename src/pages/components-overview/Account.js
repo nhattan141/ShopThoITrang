@@ -18,19 +18,19 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
-import DialogUpdateProduct from './DialogUpdateProduct';
-import DialogAddProduct from './DialogAddProduct';
+import DialogUpdateAccount from './DialogUpdateAccount';
+import DialogAddAccount from './DialogAddAccount';
 // import DialogOrderDetail from './DialogOrderDetail';
 
-import { handleGetAllProduct, handleDeleteProductApi } from 'services/productService';
+import { handleGetAllAccount, handleDeleteAccountApi } from 'services/accountService';
 
 // ===============================|| COMPONENT - PRODUCTS ||=============================== //
 
-const Products = () => {
-    const [productArr, setProductArr] = React.useState([]);
+const Account = () => {
+    const [accountArr, setAccountArr] = React.useState([]);
     const [open, setOpen] = React.useState(false);
     const [openAdd, setOpenAdd] = React.useState(false);
-    const [productID, setId] = React.useState('');
+    const [accountID, setId] = React.useState('');
     const [updated, setUpdated] = React.useState(false);
 
     const toggleDialog = () => {
@@ -49,11 +49,11 @@ const Products = () => {
         setOpenAdd(!open);
     };
 
-    const handleGetAllProductAdmin = async () => {
+    const handleGetAllOrder = async () => {
         try {
-            const res = await handleGetAllProduct();
+            const res = await handleGetAllAccount();
             if (res && res.status === 200) {
-                setProductArr(res.data.reverse());
+                setAccountArr(res.data.reverse());
             }
         } catch (e) {
             console.log(e);
@@ -62,17 +62,17 @@ const Products = () => {
     };
 
     React.useEffect(() => {
-        handleGetAllProductAdmin();
+        handleGetAllOrder();
     }, [updated]);
 
-    const handleDeleteProduct = async (productID) => {
+    const handleDeleteAccount = async (accountID) => {
         try {
-            const res = await handleDeleteProductApi(productID);
+            const res = await handleDeleteAccountApi(accountID);
             if (res && res.status === 200) {
                 setUpdated(!updated);
                 toast.success('Đã xóa tài khoản thành công');
             } else {
-                toast.error('Có lỗi, không xóa được sản phẩm');
+                toast.error('Có lỗi, không xóa được tài khoản');
             }
         } catch (e) {
             console.log(e);
@@ -88,28 +88,28 @@ const Products = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Mã sản phẩm</TableCell>
-                            <TableCell align="right">Tên sản phẩm</TableCell>
-                            <TableCell align="left">Hình ảnh</TableCell>
-                            <TableCell align="right">Mô tả</TableCell>
-                            <TableCell align="right">Số lượng</TableCell>
-                            <TableCell align="right">Đơn giá</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell align="right">Tên</TableCell>
+                            <TableCell align="left">Hình đại diện</TableCell>
+                            <TableCell align="right">Số điện thoại</TableCell>
+                            <TableCell align="right">Địa chỉ</TableCell>
+                            <TableCell align="right">Quyền</TableCell>
                             <TableCell align="right">Tương tác</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {productArr.map((row, index) => (
+                        {accountArr.map((row, index) => (
                             <TableRow hover key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell component="th" scope="row">
-                                    {row._id}
+                                    {row.email}
                                 </TableCell>
-                                <TableCell align="right">{row.Name}</TableCell>
+                                <TableCell align="right">{row.name}</TableCell>
                                 <TableCell align="right">
-                                    <Avatar variant="rounded" alt={row.Name} src={row.Image} />
+                                    <Avatar alt={row.name} src={row.avatar} />
                                 </TableCell>
-                                <TableCell align="right">{row.Description}</TableCell>
-                                <TableCell align="right">{row.Quantity}</TableCell>
-                                <TableCell align="right">{new Intl.NumberFormat().format(row.Price)}&nbsp;VNĐ</TableCell>
+                                <TableCell align="right">{row.phone}</TableCell>
+                                <TableCell align="right">{row.address}</TableCell>
+                                <TableCell align="right">{row.role === '1' ? 'Quản lý' : 'Khách hàng'}</TableCell>
                                 <TableCell align="right">
                                     <Stack direction="column" spacing={2}>
                                         <Button
@@ -126,7 +126,7 @@ const Products = () => {
                                             color="error"
                                             variant="outlined"
                                             startIcon={<DeleteIcon />}
-                                            onClick={() => handleDeleteProduct(row._id)}
+                                            onClick={() => handleDeleteAccount(row._id)}
                                         >
                                             Xóa
                                         </Button>
@@ -137,10 +137,10 @@ const Products = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <DialogUpdateProduct open={open} toggleDialog={toggleDialog} productID={productID} setUpdated={setUpdated} updated={updated} />
-            <DialogAddProduct openAdd={openAdd} toggleDialogAdd={toggleDialogAdd} setUpdated={setUpdated} updated={updated} />
+            <DialogUpdateAccount open={open} toggleDialog={toggleDialog} accountID={accountID} setUpdated={setUpdated} updated={updated} />
+            <DialogAddAccount openAdd={openAdd} toggleDialogAdd={toggleDialogAdd} setUpdated={setUpdated} updated={updated} />
         </ComponentSkeleton>
     );
 };
 
-export default Products;
+export default Account;

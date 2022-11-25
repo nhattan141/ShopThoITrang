@@ -41,8 +41,6 @@ const DialogOrder = (props) => {
         }
     }, [orderID]);
 
-    console.log(status);
-
     const handleUpdate = async () => {
         if (orderID) {
             try {

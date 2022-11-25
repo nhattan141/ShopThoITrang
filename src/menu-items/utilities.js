@@ -8,7 +8,8 @@ import {
     LoadingOutlined,
     SkinOutlined,
     ShoppingOutlined,
-    ProfileOutlined
+    ProfileOutlined,
+    UserOutlined
 } from '@ant-design/icons';
 
 // icons
@@ -21,7 +22,8 @@ const icons = {
     AppstoreAddOutlined,
     SkinOutlined,
     ShoppingOutlined,
-    ProfileOutlined
+    ProfileOutlined,
+    UserOutlined
 };
 
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
@@ -47,10 +49,10 @@ const utilities = {
         },
         {
             id: 'util-categories',
-            title: 'Danh mục',
+            title: 'Tài khoản',
             type: 'item',
-            url: '/categories',
-            icon: icons.ProfileOutlined
+            url: '/account',
+            icon: icons.UserOutlined
         }
     ]
 };

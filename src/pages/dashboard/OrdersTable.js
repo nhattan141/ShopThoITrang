@@ -61,32 +61,32 @@ const headCells = [
         id: 'trackingNo',
         align: 'left',
         disablePadding: false,
-        label: 'Tracking No.'
+        label: 'Mã'
     },
     {
         id: 'name',
         align: 'left',
         disablePadding: true,
-        label: 'Product Name'
+        label: 'Tên sản phẩm'
     },
     {
         id: 'fat',
         align: 'right',
         disablePadding: false,
-        label: 'Total Order'
+        label: 'Tổng đơn hàng'
     },
     {
         id: 'carbs',
         align: 'left',
         disablePadding: false,
 
-        label: 'Status'
+        label: 'Trạng thái'
     },
     {
         id: 'protein',
         align: 'right',
         disablePadding: false,
-        label: 'Total Amount'
+        label: 'Tổng doanh thu'
     }
 ];
 
@@ -125,15 +125,15 @@ const OrderStatus = ({ status }) => {
     switch (status) {
         case 0:
             color = 'warning';
-            title = 'Pending';
+            title = 'Chưa giải quyết';
             break;
         case 1:
             color = 'success';
-            title = 'Approved';
+            title = 'Đã phê duyệt';
             break;
         case 2:
             color = 'error';
-            title = 'Rejected';
+            title = 'Hư hỏng';
             break;
         default:
             color = 'primary';
@@ -211,7 +211,7 @@ export default function OrderTable() {
                                         <OrderStatus status={row.carbs} />
                                     </TableCell>
                                     <TableCell align="right">
-                                        <NumberFormat value={row.protein} displayType="text" thousandSeparator prefix="$" />
+                                        <NumberFormat value={row.protein} displayType="text" thousandSeparator prefix="VNĐ" />
                                     </TableCell>
                                 </TableRow>
                             );
