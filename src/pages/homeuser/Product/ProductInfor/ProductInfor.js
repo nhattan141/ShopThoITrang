@@ -64,7 +64,7 @@ const ProductInfor = (props) => {
                         <Item>
                             <div className="pro-infor">
                                 <div className="title-infor">{product.Name}</div>
-                                <div className="price-infor">{product.Price}</div>
+                                <div className="price-infor">{new Intl.NumberFormat().format(product.Price)}&nbsp;VNĐ</div>
                                 <div className="detail-infor">{product.Description}</div>
                                 <div className="add-cart">
                                     <Button
