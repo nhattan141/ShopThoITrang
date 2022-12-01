@@ -13,8 +13,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import useAddCart from 'HOC/useAddCart';
 import useToken from 'HOC/useToken';
 
-//import image
-import avatar from 'assets/images/users/avatar-1.png';
+import DialogSearch from './DialogSearch';
 
 import logo from '../../../assets/images/logo.svg';
 import './Header.scss';
@@ -24,6 +23,7 @@ import Navigation from './Navigation';
 const Header = () => {
     const { cart } = useAddCart();
     const { tokenApi } = useToken();
+    const [open, setOpen] = React.useState(false);
     const [amount, setAmount] = React.useState(cart.length);
 
     const interval = () => {
@@ -46,6 +46,10 @@ const Header = () => {
         };
     }, []);
 
+    const toggleDialog = () => {
+        setOpen(!open);
+    };
+
     if (tokenApi) {
         var { token, user } = tokenApi;
     }
@@ -55,7 +59,7 @@ const Header = () => {
             <div className="content">
                 <div className="top-header">
                     <div className="search-box">
-                        <SearchIcon />
+                        <SearchIcon onClick={toggleDialog} />
                     </div>
                     <div className="logo">
                         <Link to="/">
@@ -83,6 +87,7 @@ const Header = () => {
                     <Navigation />
                 </div>
             </div>
+            <DialogSearch open={open} toggleDialog={toggleDialog} />
         </div>
     );
 };
